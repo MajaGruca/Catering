@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+        <ui:define name="content">
+            <p:button value="Edytuj menu" outcome="/editmenu" icon="pi pi-star" style="margin-right:20px;">
+            </p:button>
+            <p:button value="Dodaj posiłek dnia" outcome="/dailymeal" icon="pi pi-star" style="margin-right:20px;">
+            </p:button>
+            <h:form>
+                Wybierz menu: <br/>
+                <p:selectOneMenu value="#{menuBean.menu.id}">
+                    <f:selectItems value="#{menuBean.getAllMenus()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}" />
+                </p:selectOneMenu>
+                <p:commandButton icon="pi pi-check"  value="Wybierz" action="#{menuBean.setUpdateMenu()}" update="odswiez"/><br/>
+                Dostępne posiłki: <br/>
+                <p:selectCheckboxMenu value="#{menuBean.chosenMeals}" id="odswiez">
+                    <f:selectItems value="#{menuBean.getMealsNotInMenu()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}" />
+                </p:selectCheckboxMenu>
+                <p:commandButton icon="pi pi-check"  value="Dodaj" action="#{menuBean.updateMealsMenu()}" update="odswiez"/><br/>
+                Aktywny?<br/>
+                <p:selectOneButton value="#{menuBean.active}">
+                    <f:selectItem itemLabel="Tak" itemValue="#{true}" />
+                    <f:selectItem itemLabel="Nie" itemValue="#{false}" />
+                </p:selectOneButton>
+                    <p:commandButton icon="pi pi-check"  value="Zmień" action="#{menuBean.updateActiveMenu()}" update="@form"/><br/>
+<!--                Wybierz posiłek dnia: <br/>-->
+<!--                <p:selectOneMenu id="nowy3" value="#{menuBean.chosenMOTD}" >-->
+<!--                    <f:selectItems value="#{menuBean.getMealsFromMenu()}" var="x" itemLabel="#{x.name}" itemValue="#{x.name}">-->
+<!--                    </f:selectItems>-->
+<!--                </p:selectOneMenu>-->
+<!--                <p:commandButton icon="pi pi-check"  value="Dodaj" action="#{menuBean.setMOTD()}" update="nowy"/><br/>-->
+<!--                Wpisz cenę posiłku dnia: <br/>-->
+<!--                <p:inputNumber value="#{sessionBean.meal.price}"/>-->
+<!--                <p:commandButton icon="pi pi-check"  value="Zmien" action="#{menuBean.setMOTDPrice()}" update="nowy"/><br/>-->
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

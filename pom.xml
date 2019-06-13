@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>soa</groupId>
+    <artifactId>Catering</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <modules>
+        <module>DatabaseApi</module>
+        <module>Database</module>
+        <module>Web</module>
+        <module>RestClient</module>
+        <module>Messages</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.spec.javax.jms</groupId>
+            <artifactId>jboss-jms-api_2.0_spec</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-jms-client-bom</artifactId>
+            <version>10.1.0.Final</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+</project>
