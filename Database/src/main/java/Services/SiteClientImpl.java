@@ -39,11 +39,19 @@ public class SiteClientImpl implements SiteClient {
         return MenuDAO.getCurrentMenu();
     }
 
-    public void addSubscribtion(Subscription subscription) {
-        SubscriptionDAO.addSubscribtion(subscription);
+    public void addSubscription(Subscription subscription) {
+        SubscriptionDAO.addSubscription(subscription);
     }
 
     public void cancelSubscribtion(Subscription subscription) {
         SubscriptionDAO.removeSubscription(subscription);
+    }
+
+    public List<Subscription> getAllSubscriptions() {
+        return SubscriptionDAO.getAllSubscriptions();
+    }
+
+    public void updateSubscription(Subscription sub) {
+        SubscriptionDAO.updateSubscribtion(sub);
     }
 }

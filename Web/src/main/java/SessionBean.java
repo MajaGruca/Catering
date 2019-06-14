@@ -1,11 +1,14 @@
 import Entities.Category;
 import Entities.Meal;
 import Entities.Menu;
+import Entities.Subscription;
 import Services.Manager;
 import Services.SessionManager;
+import Services.SiteClient;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -13,9 +16,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @ManagedBean
 @Named
@@ -28,12 +29,15 @@ import java.util.Set;
     @EJB(lookup="java:global/Database/ManagerImpl")
     private Manager manager;
 
+
     private static Meal meal = new Meal();
     private Meal chosenMeal = null;
+    private String [] days;
     private String categoryName;
     private String [] chosenCategories;
     private String [] chosenMenus;
     private String [] chosenMeals;
+    private static Subscription subscripton = new Subscription();
 
     public Meal getMeal() {
         return meal;
@@ -132,16 +136,6 @@ import java.util.Set;
         return menus;
     }
 
-    public Set<Meal> getMealsSet(String[] list) {
-        Set<Meal> menus = new HashSet<Meal>();
-        for (String x : list) {
-            menus.add(sessionManagerBean.getMealById(Integer.parseInt(x)));
-            System.out.println("meal: " + Integer.parseInt(x));
-        }
-        chosenMenus = null;
-        return menus;
-    }
-
     public void logout()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
@@ -154,7 +148,12 @@ import java.util.Set;
         }
     }
 
-//    public List<Meal> getAllMeals(int menuId) {
-//        return
-//    }
+    public String[] getChosenMeals() {
+        return chosenMeals;
+    }
+
+    public void setChosenMeals(String[] chosenMeals) {
+        this.chosenMeals = chosenMeals;
+    }
+
 }

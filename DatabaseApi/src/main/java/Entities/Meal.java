@@ -34,6 +34,9 @@ public class Meal implements Serializable {
     @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<Menu> menu;
 
+    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<Subscription> subscription;
+
     public Meal() {
     }
 

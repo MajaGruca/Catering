@@ -22,16 +22,30 @@ public class SubscriptionDAO {
             em = factory.createEntityManager();
     }
 
-    public static void addSubscribtion(Subscription sub) {
+    public static void addSubscription(Subscription sub) {
         init();
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("DataSource");
-        EntityManager em = factory.createEntityManager();
 
         try {
             em.getTransaction().begin();
             em.persist(sub);
             em.flush();
-            em.getTransaction().commit();
+            System.out.println("Zapisano w bazie: Sub " + sub.getId());
+        }
+        catch(Exception e) {
+            System.err.println("Blad przy dodawaniu rekordu: " + e);
+        }
+    }
+
+    public static void updateSubscribtion(Subscription sub) {
+        init();
+        try {
+            em.getTransaction().begin();
+            Subscription old_sub = em.find(Subscription.class, sub.getId());
+            if (old_sub.getMeals() != sub.getMeals() && sub.getMeals()!= null) old_sub.setMeals(sub.getMeals());
+            if (old_sub.getDays() != sub.getDays() && sub.getDays()!= null) old_sub.setDays(sub.getDays());
+            if (old_sub.getDelivery() != sub.getDelivery() && sub.getDelivery() != null) old_sub.setDelivery(sub.getDelivery());
+            em.merge(old_sub);
+            em.flush();
             System.out.println("Zapisano w bazie: Sub " + sub.getId());
         }
         catch(Exception e) {
@@ -67,5 +81,18 @@ public class SubscriptionDAO {
             System.err.println("Blad przy pobieraniu danych: " + e);
         }
         return results.get(0);
+    }
+    
+    public static List<Subscription> getAllSubscriptions() {
+        init();
+        List<Subscription> results = new LinkedList<Subscription>();
+        try {
+            TypedQuery<Subscription> query =
+                    em.createQuery("SELECT DISTINCT c FROM Subscription c JOIN FETCH c.meals JOIN FETCH c.days", Subscription.class);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return results;
     }
 }

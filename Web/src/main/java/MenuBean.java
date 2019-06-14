@@ -56,7 +56,6 @@ public class MenuBean implements Serializable{
         }
         System.out.println("Po managerze " + menu.getMeal().iterator().next().getName());
         manager.createMenu(menu, resultSet);
-        menu = new Menu();
     }
 
     public List<Meal> getMealsNotInMenu() {
