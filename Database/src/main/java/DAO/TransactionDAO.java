@@ -3,7 +3,6 @@ package DAO;
 import Entities.Meal;
 import Entities.Transaction;
 import Entities.Users;
-import org.graalvm.compiler.lir.LIRInstruction;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

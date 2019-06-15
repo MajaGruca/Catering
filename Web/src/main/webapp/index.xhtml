@@ -14,9 +14,31 @@
         <ui:define name="content">
         <h:form>
             <h2>
-            Witaj #{sessionBean.getCurrUser()}!<br/>
-            Przejdź do wybranej zakładki
+                Witaj #{sessionBean.getCurrUser()}!<br/>
+                Przejdź do wybranej zakładki
             </h2>
+            <h:form rendered="#{sessionBean.userRoleEmployee1()}">
+                <p:dataTable var="users" value="#{subscriptionBean.getAllSubscriptions()}">
+                    <p:column headerText="Delvery">
+                        <h:outputText value="#{sub.delivery}" />
+                    </p:column>
+
+                    <p:column headerText="Dni">
+                        <h:outputText value="#{subscriptionBean.changeIntToDays(sub.days)}" />
+                    </p:column>
+
+                    <p:column headerText="Posiłki">
+                        <h:outputText value="#{subscriptionBean.getMealsNames(sub.meals)}" />
+                    </p:column>
+
+                    <p:column headerText="Edytuj">
+                        <p:commandButton icon="ui-icon-trash"
+                                         title="Edit"
+                                         actionListener="#{subscriptionBean.edit(sub)}"
+                                         ajax="false" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
         </h:form>
         </ui:define>
     </ui:composition>

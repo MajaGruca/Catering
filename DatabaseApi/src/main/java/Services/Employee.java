@@ -10,7 +10,9 @@ import java.util.List;
 @Remote
 public interface Employee {
     void prepareMeal(Transaction transaction);
-    void generateBill(Users user);
-    void orderDelivery(Users user);
+    List<Transaction> generateBill(Users user);
+    void orderDelivery(Transaction t);
     List<Transaction> getAllTransactions();
+    void addTransaction(Transaction t);
+    List<Users> getAllClients();
 }

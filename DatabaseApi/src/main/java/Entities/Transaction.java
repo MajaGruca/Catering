@@ -21,7 +21,7 @@ public class Transaction implements Serializable {
     private Set<Meal> meals = new HashSet<Meal>();
 
     @Column(name="price")
-    private Float price;
+    private Double price;
 
     @Column(name="date")
     private Date date;
@@ -46,11 +46,11 @@ public class Transaction implements Serializable {
         this.id = id;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -70,7 +70,7 @@ public class Transaction implements Serializable {
         this.delivery = delivery;
     }
 
-    public Transaction(Set<Meal> meals, Float price, Date date, Boolean delivery) {
+    public Transaction(Set<Meal> meals, Double price, Date date, Boolean delivery) {
         this.meals = meals;
         this.price = price;
         this.date = date;

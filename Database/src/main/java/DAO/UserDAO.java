@@ -64,6 +64,20 @@ public class UserDAO {
         return results.get(0);
     }
 
+    public static List<Users> getAllClients() {
+        init();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        List<Users> results = new LinkedList<Users>();
+        try {
+            TypedQuery<Users> query =
+                    em.createQuery("SELECT c FROM Users c where c.role LIKE :role", Users.class).setParameter("role", "Client");
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return results;
+    }
+
     private static void init() {
         if (factory==null)
             factory = Persistence.createEntityManagerFactory("DataSource");

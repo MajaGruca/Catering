@@ -1,9 +1,7 @@
 package Services;
 
-import DAO.MealDAO;
 import DAO.TransactionDAO;
 import DAO.UserDAO;
-import Entities.Meal;
 import Entities.Transaction;
 import Entities.Users;
 
@@ -16,22 +14,35 @@ import java.util.List;
 public class EmployeeImpl implements Employee {
 
     public void prepareMeal(Transaction transaction) {
-        if(transaction.getDelivery())
-            transaction.setStatus("ReadyForDelivery");
-        else
-            transaction.setStatus("ReadyForCollection");
+        transaction.setStatus("ReadyForCollection");
         TransactionDAO.updateTransactionStatus(transaction);
     }
 
-    public void generateBill(Users user) {
-        TransactionDAO.getAllUsersTransactions(user);
+    public List<Transaction> generateBill(Users user) {
+        return TransactionDAO.getAllUsersTransactions(user);
     }
 
-    public void orderDelivery(Users user) {
-
+    public void orderDelivery(Transaction transaction) {
+        if(transaction.getDelivery())
+            transaction.setStatus("ReadyForDelivery");
+        TransactionDAO.updateTransactionStatus(transaction);
     }
 
     public List<Transaction> getAllTransactions() {
         return TransactionDAO.getAllTransactions();
     }
+
+    public List<Users> getAllClients() {
+        return UserDAO.getAllClients();
+    }
+
+    public void addTransaction(Transaction t) {
+        TransactionDAO.addTransaction(t);
+    }
+
+//    public void addTransaction(Transaction t) {
+////        TransactionDAO.addTransaction(t);
+////    }
+
+
 }
