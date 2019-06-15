@@ -2,14 +2,12 @@ import Entities.Category;
 import Entities.Meal;
 import Entities.Menu;
 import Entities.Subscription;
-import Services.Manager;
 import Services.SessionManager;
 import Services.SiteClient;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -17,10 +15,8 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import static org.primefaces.component.dnd.Draggable.PropertyKeys.helper;
 
 @ManagedBean
 @Named
@@ -169,4 +165,5 @@ public class SubscriptionBean implements Serializable{
         client.updateSubscription(subscripton);
         days = null;
     }
+
 }

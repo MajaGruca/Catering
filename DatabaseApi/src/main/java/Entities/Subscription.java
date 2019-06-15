@@ -23,8 +23,6 @@ public class Subscription implements Serializable {
     @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private Set<Meal> meals = new HashSet<Meal>();
 
-//    @ManyToOne
-//    private Users user;
     @ElementCollection
     @Column(name="days")
     private Set<Integer> days;

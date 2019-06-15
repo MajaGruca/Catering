@@ -1,5 +1,6 @@
 package Services;
 
+import DAO.TransactionDAO;
 import Entities.Meal;
 import Entities.Transaction;
 import Entities.Users;
@@ -27,4 +28,14 @@ public class EmployeeImpl implements Employee {
     public List<Transaction> getAllTransactions() {
         return null;
     }
+
+    public void addTransaction(Transaction t) {
+        TransactionDAO.addTransaction(t);
+    }
+
+//    public void addTransaction(Transaction t) {
+////        TransactionDAO.addTransaction(t);
+////    }
+
+
 }

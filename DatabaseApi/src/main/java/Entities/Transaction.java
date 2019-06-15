@@ -2,28 +2,38 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Transaction")
 public class Transaction implements Serializable {
 
-    @Column(name = "id")
+    @Column(name = "transaction_id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "meal_id")
-    private int meal_id;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "meal_id")
+    private Set<Meal> meals = new HashSet<Meal>();
 
     @Column(name="price")
-    private Float price;
+    private Double price;
 
     @Column(name="date")
     private Date date;
 
     @Column(name="delivery")
     private Boolean delivery;
+
+    @Column(name="status")
+    private String status;
+
+    @Column(name="time")
+    private Time time;
 
     public Transaction() {
     }
@@ -36,19 +46,11 @@ public class Transaction implements Serializable {
         this.id = id;
     }
 
-    public int getMeal_id() {
-        return meal_id;
-    }
-
-    public void setMeal_id(int meal_id) {
-        this.meal_id = meal_id;
-    }
-
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -68,10 +70,34 @@ public class Transaction implements Serializable {
         this.delivery = delivery;
     }
 
-    public Transaction(int meal_id, Float price, Date date, Boolean delivery) {
-        this.meal_id = meal_id;
+    public Transaction(Set<Meal> meals, Double price, Date date, Boolean delivery) {
+        this.meals = meals;
         this.price = price;
         this.date = date;
         this.delivery = delivery;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
+    public Set<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(Set<Meal> meals) {
+        this.meals = meals;
     }
 }

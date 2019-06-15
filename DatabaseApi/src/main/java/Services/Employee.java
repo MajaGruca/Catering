@@ -13,4 +13,5 @@ public interface Employee {
     void generateBill(Users user);
     void orderDelivery(Users user);
     List<Transaction> getAllTransactions();
+    void addTransaction(Transaction t);
 }
