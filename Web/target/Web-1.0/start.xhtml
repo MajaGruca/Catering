@@ -12,6 +12,8 @@
 <h:body>
     <ui:composition>
         <p:menubar>
+            <p:menuitem value="Strona Główna" outcome="/index" icon="pi pi-star">
+            </p:menuitem>
             <p:menuitem rendered="#{sessionBean.userRoleManager()}" value="Dodaj posiłek" outcome="/addmeal" icon="pi pi-star">
             </p:menuitem>
             <p:menuitem rendered="#{sessionBean.userRoleManager()}" value="Dodaj kategorię" outcome="/addcategory" icon="pi pi-search">
@@ -19,6 +21,8 @@
             <p:menuitem rendered="#{sessionBean.userRoleManager()}" value="Dodaj menu" outcome="/addmenu" icon="pi pi-search">
             </p:menuitem>
             <p:menuitem rendered="#{sessionBean.userRoleClient()}" value="Dodaj subskrypcje" outcome="/addsubscription" icon="pi pi-search">
+            </p:menuitem>
+            <p:menuitem value="Dodaj transakcje" outcome="/addtransaction" icon="pi pi-search">
             </p:menuitem>
             <f:facet name="options">
                 Uzytkownik: #{sessionBean.getCurrUser()}

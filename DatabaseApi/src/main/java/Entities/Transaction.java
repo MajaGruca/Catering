@@ -17,7 +17,6 @@ public class Transaction implements Serializable {
     private int id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "meal_id")
     private Set<Meal> meals = new HashSet<Meal>();
 
     @Column(name="price")

@@ -14,6 +14,14 @@
             <to-view-id>/addCategory.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>/index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/bill</from-outcome>
+            <to-view-id>/bill.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>/addmenu</from-outcome>
             <to-view-id>/menu.xhtml</to-view-id>
         </navigation-case>
@@ -32,6 +40,10 @@
         <navigation-case>
             <from-outcome>/showsubscriptions</from-outcome>
             <to-view-id>/showSubscriptions.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/addtransaction</from-outcome>
+            <to-view-id>/transaction.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

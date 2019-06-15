@@ -37,7 +37,7 @@ public class EmployeeImpl implements Employee {
     }
 
     public void addTransaction(Transaction t) {
-        TransactionDAO.addTransaction(t);
+        TransactionDAO.addTr(t);
     }
 
 //    public void addTransaction(Transaction t) {

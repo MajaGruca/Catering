@@ -50,7 +50,7 @@ public class TransactionDAO {
         return results;
     }
 
-    public static void addTransaction(Transaction t) {
+    public static void addTr(Transaction t) {
         init();
         try {
             em.getTransaction().begin();

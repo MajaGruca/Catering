@@ -25,8 +25,17 @@ public class TransactionBean implements Serializable {
     private SessionManager sessionManagerBean;
     private static Transaction transaction = new Transaction();
     private String [] chosenMeals;
+    private Users user;
 
     public List<Users> getAllUsers() { return employee.getAllClients();}
+
+    public String[] getChosenMeals() {
+        return chosenMeals;
+    }
+
+    public void setChosenMeals(String[] chosenMeals) {
+        this.chosenMeals = chosenMeals;
+    }
 
     public List<Meal> getAllMeals() {
         return sessionManagerBean.getAllMeals();
@@ -37,7 +46,7 @@ public class TransactionBean implements Serializable {
     }
 
     public void addTransaction() {
-        if (transaction.getId() > 0) {
+        if (transaction.getMeals() != null) {
             Date d = new Date();
             Double price = 0.0;
             transaction.setDate(d);
@@ -51,11 +60,25 @@ public class TransactionBean implements Serializable {
         }
     }
 
-    public static Transaction getTransaction() {
+    public List<Transaction> generateBill(Users user)
+    {
+        return employee.generateBill(user);
+    }
+
+    public Transaction getTransaction() {
         return transaction;
     }
 
-    public static void setTransaction(Transaction transaction) {
+    public void setTransaction(Transaction transaction) {
         TransactionBean.transaction = transaction;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public String setUser(Users user) {
+        this.user = user;
+        return "/bill";
     }
 }
