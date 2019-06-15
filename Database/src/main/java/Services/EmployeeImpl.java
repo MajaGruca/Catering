@@ -1,5 +1,8 @@
 package Services;
 
+import DAO.MealDAO;
+import DAO.TransactionDAO;
+import DAO.UserDAO;
 import Entities.Meal;
 import Entities.Transaction;
 import Entities.Users;
@@ -12,12 +15,16 @@ import java.util.List;
 @Remote(Employee.class)
 public class EmployeeImpl implements Employee {
 
-    public void prepareMeal(Meal meal) {
-
+    public void prepareMeal(Transaction transaction) {
+        if(transaction.getDelivery())
+            transaction.setStatus("ReadyForDelivery");
+        else
+            transaction.setStatus("ReadyForCollection");
+        TransactionDAO.updateTransactionStatus(transaction);
     }
 
     public void generateBill(Users user) {
-
+        TransactionDAO.getAllUsersTransactions(user);
     }
 
     public void orderDelivery(Users user) {
@@ -25,6 +32,6 @@ public class EmployeeImpl implements Employee {
     }
 
     public List<Transaction> getAllTransactions() {
-        return null;
+        return TransactionDAO.getAllTransactions();
     }
 }
