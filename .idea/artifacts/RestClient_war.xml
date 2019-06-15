@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RestClient:war">
+    <output-path>$PROJECT_DIR$/RestClient/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>RestClient</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="RestClient-1.0.war">
+      <element id="artifact" artifact-name="RestClient:war exploded" />
+    </root>
+  </artifact>
+</component>

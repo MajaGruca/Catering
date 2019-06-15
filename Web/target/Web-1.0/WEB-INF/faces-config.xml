@@ -25,5 +25,17 @@
             <from-outcome>/dailymeal</from-outcome>
             <to-view-id>/dailymeal.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>/addsubscription</from-outcome>
+            <to-view-id>/subscription.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/showsubscriptions</from-outcome>
+            <to-view-id>/showSubscriptions.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/addtransaction</from-outcome>
+            <to-view-id>/transaction.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
