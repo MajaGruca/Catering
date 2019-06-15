@@ -9,14 +9,14 @@
       <Comment>default administrative connection database</Comment>
       <StateNumber>541</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>10071</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10193</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
-      <Relations>sequence|table|43405|43407|1
-sequence|table|43372|43374|1
-sequence|table|43232|43234|1
-sequence|table|43253|43255|1
-sequence|table|43277|43279|1
+      <Relations>sequence|table|43554|43556|1
+sequence|table|43562|43564|1
+sequence|table|43578|43580|1
+sequence|table|43591|43593|1
+sequence|table|43607|43609|1
 sequence|table|43285|43287|1
 </Relations>
     </database>
@@ -77,7 +77,7 @@ sequence|table|43285|43287|1
       <Comment>standard public schema</Comment>
       <StateNumber>340</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>10072</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10194</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -153,37 +153,37 @@ sequence|table|43285|43287|1
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="21" parent="11" name="category_category_id_seq">
-      <ObjectId>43372</ObjectId>
+      <ObjectId>43554</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10051</StateNumber>
+      <StateNumber>10163</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="22" parent="11" name="meal_meal_id_seq">
-      <ObjectId>43232</ObjectId>
+      <ObjectId>43562</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>9989</StateNumber>
+      <StateNumber>10164</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="23" parent="11" name="menu_menu_id_seq">
-      <ObjectId>43253</ObjectId>
+      <ObjectId>43578</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>9992</StateNumber>
+      <StateNumber>10166</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="24" parent="11" name="subscription_subscription_id_seq">
-      <ObjectId>43405</ObjectId>
+      <ObjectId>43591</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10057</StateNumber>
+      <StateNumber>10168</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="25" parent="11" name="transaction_transaction_id_seq">
-      <ObjectId>43277</ObjectId>
+      <ObjectId>43607</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>9996</StateNumber>
+      <StateNumber>10171</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
     </sequence>
@@ -195,571 +195,509 @@ sequence|table|43285|43287|1
       <CacheSize>1</CacheSize>
     </sequence>
     <table id="27" parent="11" name="category">
-      <ObjectId>43374</ObjectId>
+      <ObjectId>43556</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10061</StateNumber>
+      <StateNumber>10174</StateNumber>
     </table>
-    <table id="28" parent="11" name="category_meal">
-      <ObjectId>43380</ObjectId>
+    <table id="28" parent="11" name="meal">
+      <ObjectId>43564</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10060</StateNumber>
+      <StateNumber>10182</StateNumber>
     </table>
-    <table id="29" parent="11" name="meal">
-      <ObjectId>43234</ObjectId>
+    <table id="29" parent="11" name="meal_categories">
+      <ObjectId>43573</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10067</StateNumber>
+      <StateNumber>10175</StateNumber>
     </table>
-    <table id="30" parent="11" name="meal_category">
-      <ObjectId>43385</ObjectId>
+    <table id="30" parent="11" name="menu">
+      <ObjectId>43580</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10062</StateNumber>
+      <StateNumber>10177</StateNumber>
     </table>
-    <table id="31" parent="11" name="meal_menu">
-      <ObjectId>43390</ObjectId>
+    <table id="31" parent="11" name="menu_meals">
+      <ObjectId>43586</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10064</StateNumber>
+      <StateNumber>10177</StateNumber>
     </table>
-    <table id="32" parent="11" name="meal_subscription">
-      <ObjectId>43395</ObjectId>
+    <table id="32" parent="11" name="subscription">
+      <ObjectId>43593</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10066</StateNumber>
+      <StateNumber>10180</StateNumber>
     </table>
-    <table id="33" parent="11" name="menu">
-      <ObjectId>43255</ObjectId>
+    <table id="33" parent="11" name="subscription_days">
+      <ObjectId>43599</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10068</StateNumber>
+      <StateNumber>10178</StateNumber>
     </table>
-    <table id="34" parent="11" name="menu_meal">
-      <ObjectId>43400</ObjectId>
+    <table id="34" parent="11" name="subscription_meals">
+      <ObjectId>43602</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10068</StateNumber>
+      <StateNumber>10180</StateNumber>
     </table>
-    <table id="35" parent="11" name="subscription">
-      <ObjectId>43407</ObjectId>
+    <table id="35" parent="11" name="transaction">
+      <ObjectId>43609</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10070</StateNumber>
+      <StateNumber>10183</StateNumber>
     </table>
-    <table id="36" parent="11" name="subscription_days">
-      <ObjectId>43413</ObjectId>
+    <table id="36" parent="11" name="transaction_meal">
+      <ObjectId>43615</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10070</StateNumber>
+      <StateNumber>10183</StateNumber>
     </table>
-    <table id="37" parent="11" name="transaction">
-      <ObjectId>43279</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>10009</StateNumber>
-    </table>
-    <table id="38" parent="11" name="users">
+    <table id="37" parent="11" name="users">
       <ObjectId>43287</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>10069</StateNumber>
+      <StateNumber>10181</StateNumber>
     </table>
-    <column id="39" parent="27" name="category_id">
+    <column id="38" parent="27" name="category_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>10051</StateNumber>
+      <StateNumber>10163</StateNumber>
       <DefaultExpression>nextval(&apos;category_category_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="40" parent="27" name="name">
+    <column id="39" parent="27" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>10051</StateNumber>
+      <StateNumber>10163</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="41" parent="27" name="category_pkey">
-      <ObjectId>43378</ObjectId>
-      <StateNumber>10051</StateNumber>
+    <index id="40" parent="27" name="category_pkey">
+      <ObjectId>43560</ObjectId>
+      <StateNumber>10163</StateNumber>
       <ColNames>category_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="42" parent="27" name="category_pkey">
-      <ObjectId>43379</ObjectId>
-      <StateNumber>10051</StateNumber>
+    <key id="41" parent="27" name="category_pkey">
+      <ObjectId>43561</ObjectId>
+      <StateNumber>10163</StateNumber>
       <ColNames>category_id</ColNames>
       <UnderlyingIndexName>category_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="43" parent="28" name="category_category_id">
+    <column id="42" parent="28" name="meal_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>10052</StateNumber>
+      <StateNumber>10164</StateNumber>
+      <DefaultExpression>nextval(&apos;meal_meal_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="44" parent="28" name="meal_meal_id">
+    <column id="43" parent="28" name="description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>10164</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="28" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>10164</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="28" name="owner">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>10164</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="28" name="price">
+      <Position>5</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>10164</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="47" parent="28" name="weight">
+      <Position>6</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>10164</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="48" parent="28" name="meal_pkey">
+      <ObjectId>43571</ObjectId>
+      <StateNumber>10164</StateNumber>
+      <ColNames>meal_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="49" parent="28" name="meal_pkey">
+      <ObjectId>43572</ObjectId>
+      <StateNumber>10164</StateNumber>
+      <ColNames>meal_id</ColNames>
+      <UnderlyingIndexName>meal_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="29" name="meal_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10165</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="51" parent="29" name="category_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>10052</StateNumber>
+      <StateNumber>10165</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="45" parent="28" name="category_meal_pkey">
-      <ObjectId>43383</ObjectId>
-      <StateNumber>10052</StateNumber>
-      <ColNames>category_category_id
-meal_meal_id</ColNames>
+    <index id="52" parent="29" name="meal_categories_pkey">
+      <ObjectId>43576</ObjectId>
+      <StateNumber>10165</StateNumber>
+      <ColNames>meal_id
+category_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="46" parent="28" name="category_meal_pkey">
-      <ObjectId>43384</ObjectId>
-      <StateNumber>10052</StateNumber>
-      <ColNames>category_category_id
-meal_meal_id</ColNames>
-      <UnderlyingIndexName>category_meal_pkey</UnderlyingIndexName>
+    <key id="53" parent="29" name="meal_categories_pkey">
+      <ObjectId>43577</ObjectId>
+      <StateNumber>10165</StateNumber>
+      <ColNames>meal_id
+category_id</ColNames>
+      <UnderlyingIndexName>meal_categories_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="47" parent="28" name="fkj2gjpfd51m3bbdabyrdytxv6v">
-      <ObjectId>43421</ObjectId>
-      <StateNumber>10060</StateNumber>
-      <ColNames>category_category_id</ColNames>
-      <RefTableId>43374</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>category</RefTableName>
-      <RefKeyName>category_pkey</RefKeyName>
-      <RefColNames>category_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="48" parent="28" name="fk2ouruwuk4qs0dbnw6yqhhtrfg">
-      <ObjectId>43416</ObjectId>
-      <StateNumber>10059</StateNumber>
-      <ColNames>meal_meal_id</ColNames>
-      <RefTableId>43234</RefTableId>
+    <foreign-key id="54" parent="29" name="fkd8c1xen07rmpjjav6n8ehx3c8">
+      <ObjectId>43627</ObjectId>
+      <StateNumber>10175</StateNumber>
+      <ColNames>meal_id</ColNames>
+      <RefTableId>43564</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>meal</RefTableName>
       <RefKeyName>meal_pkey</RefKeyName>
       <RefColNames>meal_id</RefColNames>
     </foreign-key>
-    <column id="49" parent="29" name="meal_id">
+    <foreign-key id="55" parent="29" name="fkt0lbvybeox6i6uh78c1m8gk3k">
+      <ObjectId>43622</ObjectId>
+      <StateNumber>10174</StateNumber>
+      <ColNames>category_id</ColNames>
+      <RefTableId>43556</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>category</RefTableName>
+      <RefKeyName>category_pkey</RefKeyName>
+      <RefColNames>category_id</RefColNames>
+    </foreign-key>
+    <column id="56" parent="30" name="menu_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>9989</StateNumber>
-      <DefaultExpression>nextval(&apos;meal_meal_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>10166</StateNumber>
+      <DefaultExpression>nextval(&apos;menu_menu_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="29" name="description">
+    <column id="57" parent="30" name="active">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9989</StateNumber>
-      <TypeId>1043</TypeId>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>10166</StateNumber>
+      <TypeId>16</TypeId>
     </column>
-    <column id="51" parent="29" name="name">
+    <column id="58" parent="30" name="daily_meal">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9989</StateNumber>
-      <TypeId>1043</TypeId>
+      <DataType>integer|0s</DataType>
+      <StateNumber>10166</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="52" parent="29" name="owner">
+    <column id="59" parent="30" name="daily_meal_price">
       <Position>4</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>10166</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="60" parent="30" name="menu_name">
+      <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9989</StateNumber>
+      <StateNumber>10166</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="53" parent="29" name="price">
-      <Position>5</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>9989</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="54" parent="29" name="weight">
-      <Position>6</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>9989</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <index id="55" parent="29" name="meal_pkey">
-      <ObjectId>43241</ObjectId>
-      <StateNumber>9989</StateNumber>
-      <ColNames>meal_id</ColNames>
+    <index id="61" parent="30" name="menu_pkey">
+      <ObjectId>43584</ObjectId>
+      <StateNumber>10166</StateNumber>
+      <ColNames>menu_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="56" parent="29" name="meal_pkey">
-      <ObjectId>43242</ObjectId>
-      <StateNumber>9989</StateNumber>
-      <ColNames>meal_id</ColNames>
-      <UnderlyingIndexName>meal_pkey</UnderlyingIndexName>
+    <key id="62" parent="30" name="menu_pkey">
+      <ObjectId>43585</ObjectId>
+      <StateNumber>10166</StateNumber>
+      <ColNames>menu_id</ColNames>
+      <UnderlyingIndexName>menu_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="57" parent="29" name="fkkjrctyidsl7i3ssswiwv09a7o">
-      <ObjectId>43306</ObjectId>
-      <StateNumber>10000</StateNumber>
+    <column id="63" parent="31" name="menu_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10167</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="64" parent="31" name="meal_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10167</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="65" parent="31" name="menu_meals_pkey">
+      <ObjectId>43589</ObjectId>
+      <StateNumber>10167</StateNumber>
+      <ColNames>menu_id
+meal_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="66" parent="31" name="menu_meals_pkey">
+      <ObjectId>43590</ObjectId>
+      <StateNumber>10167</StateNumber>
+      <ColNames>menu_id
+meal_id</ColNames>
+      <UnderlyingIndexName>menu_meals_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="31" name="fksic1t9mqtm1901sgv5ivob2fm">
+      <ObjectId>43637</ObjectId>
+      <StateNumber>10177</StateNumber>
+      <ColNames>menu_id</ColNames>
+      <RefTableId>43580</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>menu</RefTableName>
+      <RefKeyName>menu_pkey</RefKeyName>
+      <RefColNames>menu_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="68" parent="31" name="fkhy3vxq3ouij520xv6gn0bte2g">
+      <ObjectId>43632</ObjectId>
+      <StateNumber>10176</StateNumber>
       <ColNames>meal_id</ColNames>
-      <RefTableId>43279</RefTableId>
+      <RefTableId>43564</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>meal</RefTableName>
+      <RefKeyName>meal_pkey</RefKeyName>
+      <RefColNames>meal_id</RefColNames>
+    </foreign-key>
+    <column id="69" parent="32" name="subscription_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10168</StateNumber>
+      <DefaultExpression>nextval(&apos;subscription_subscription_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="70" parent="32" name="delivery">
+      <Position>2</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>10168</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="71" parent="32" name="time">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>10168</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="72" parent="32" name="subscription_pkey">
+      <ObjectId>43597</ObjectId>
+      <StateNumber>10168</StateNumber>
+      <ColNames>subscription_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="32" name="subscription_pkey">
+      <ObjectId>43598</ObjectId>
+      <StateNumber>10168</StateNumber>
+      <ColNames>subscription_id</ColNames>
+      <UnderlyingIndexName>subscription_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="33" name="subscription_subscription_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10169</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="75" parent="33" name="days">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>10169</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="76" parent="33" name="fkda6ju7j02qbgfby000wtjuv2c">
+      <ObjectId>43642</ObjectId>
+      <StateNumber>10178</StateNumber>
+      <ColNames>subscription_subscription_id</ColNames>
+      <RefTableId>43593</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>subscription</RefTableName>
+      <RefKeyName>subscription_pkey</RefKeyName>
+      <RefColNames>subscription_id</RefColNames>
+    </foreign-key>
+    <column id="77" parent="34" name="subscription_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10170</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="78" parent="34" name="meal_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10170</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="79" parent="34" name="subscription_meals_pkey">
+      <ObjectId>43605</ObjectId>
+      <StateNumber>10170</StateNumber>
+      <ColNames>subscription_id
+meal_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="34" name="subscription_meals_pkey">
+      <ObjectId>43606</ObjectId>
+      <StateNumber>10170</StateNumber>
+      <ColNames>subscription_id
+meal_id</ColNames>
+      <UnderlyingIndexName>subscription_meals_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="34" name="fk6hcjj4upqcfk861vx2ghjb07n">
+      <ObjectId>43652</ObjectId>
+      <StateNumber>10180</StateNumber>
+      <ColNames>subscription_id</ColNames>
+      <RefTableId>43593</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>subscription</RefTableName>
+      <RefKeyName>subscription_pkey</RefKeyName>
+      <RefColNames>subscription_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="82" parent="34" name="fkk7kx2loiqha104smxpijewku8">
+      <ObjectId>43647</ObjectId>
+      <StateNumber>10179</StateNumber>
+      <ColNames>meal_id</ColNames>
+      <RefTableId>43564</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>meal</RefTableName>
+      <RefKeyName>meal_pkey</RefKeyName>
+      <RefColNames>meal_id</RefColNames>
+    </foreign-key>
+    <column id="83" parent="35" name="transaction_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10171</StateNumber>
+      <DefaultExpression>nextval(&apos;transaction_transaction_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="84" parent="35" name="date">
+      <Position>2</Position>
+      <DataType>timestamp|0s</DataType>
+      <StateNumber>10171</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="85" parent="35" name="delivery">
+      <Position>3</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>10171</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="86" parent="35" name="price">
+      <Position>4</Position>
+      <DataType>double precision|0s</DataType>
+      <StateNumber>10171</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="87" parent="35" name="status">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>10171</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="88" parent="35" name="time">
+      <Position>6</Position>
+      <DataType>time|0s</DataType>
+      <StateNumber>10171</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <index id="89" parent="35" name="transaction_pkey">
+      <ObjectId>43613</ObjectId>
+      <StateNumber>10171</StateNumber>
+      <ColNames>transaction_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="90" parent="35" name="transaction_pkey">
+      <ObjectId>43614</ObjectId>
+      <StateNumber>10171</StateNumber>
+      <ColNames>transaction_id</ColNames>
+      <UnderlyingIndexName>transaction_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="91" parent="35" name="fk5gxun4lpoxsfwiqj4fy50s0ej">
+      <ObjectId>43657</ObjectId>
+      <StateNumber>10181</StateNumber>
+      <ColNames>transaction_id</ColNames>
+      <RefTableId>43287</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="92" parent="36" name="transaction_transaction_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10172</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="93" parent="36" name="meals_meal_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>10172</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="94" parent="36" name="transaction_meal_pkey">
+      <ObjectId>43618</ObjectId>
+      <StateNumber>10172</StateNumber>
+      <ColNames>transaction_transaction_id
+meals_meal_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="95" parent="36" name="uk_sjtuqnljwa22u9bqvlkmth6na">
+      <ObjectId>43620</ObjectId>
+      <StateNumber>10173</StateNumber>
+      <ColNames>meals_meal_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="36" name="transaction_meal_pkey">
+      <ObjectId>43619</ObjectId>
+      <StateNumber>10172</StateNumber>
+      <ColNames>transaction_transaction_id
+meals_meal_id</ColNames>
+      <UnderlyingIndexName>transaction_meal_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="97" parent="36" name="uk_sjtuqnljwa22u9bqvlkmth6na">
+      <ObjectId>43621</ObjectId>
+      <StateNumber>10173</StateNumber>
+      <ColNames>meals_meal_id</ColNames>
+      <UnderlyingIndexName>uk_sjtuqnljwa22u9bqvlkmth6na</UnderlyingIndexName>
+    </key>
+    <foreign-key id="98" parent="36" name="fk57gc99nit8mbyoa3cnv8ouv9d">
+      <ObjectId>43667</ObjectId>
+      <StateNumber>10183</StateNumber>
+      <ColNames>transaction_transaction_id</ColNames>
+      <RefTableId>43609</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>transaction</RefTableName>
       <RefKeyName>transaction_pkey</RefKeyName>
       <RefColNames>transaction_id</RefColNames>
     </foreign-key>
-    <column id="58" parent="30" name="meal_meal_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10053</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="59" parent="30" name="category_category_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10053</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="60" parent="30" name="meal_category_pkey">
-      <ObjectId>43388</ObjectId>
-      <StateNumber>10053</StateNumber>
-      <ColNames>meal_meal_id
-category_category_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="61" parent="30" name="meal_category_pkey">
-      <ObjectId>43389</ObjectId>
-      <StateNumber>10053</StateNumber>
-      <ColNames>meal_meal_id
-category_category_id</ColNames>
-      <UnderlyingIndexName>meal_category_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="62" parent="30" name="fkhl6uk8hk59h2aqs0b0si4ca2b">
-      <ObjectId>43431</ObjectId>
-      <StateNumber>10062</StateNumber>
-      <ColNames>meal_meal_id</ColNames>
-      <RefTableId>43234</RefTableId>
+    <foreign-key id="99" parent="36" name="fkt268awl9xshkhc5ujgmosvbil">
+      <ObjectId>43662</ObjectId>
+      <StateNumber>10182</StateNumber>
+      <ColNames>meals_meal_id</ColNames>
+      <RefTableId>43564</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>meal</RefTableName>
       <RefKeyName>meal_pkey</RefKeyName>
       <RefColNames>meal_id</RefColNames>
     </foreign-key>
-    <foreign-key id="63" parent="30" name="fk90vs7kwjfue6l85akyirj30ou">
-      <ObjectId>43426</ObjectId>
-      <StateNumber>10061</StateNumber>
-      <ColNames>category_category_id</ColNames>
-      <RefTableId>43374</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>category</RefTableName>
-      <RefKeyName>category_pkey</RefKeyName>
-      <RefColNames>category_id</RefColNames>
-    </foreign-key>
-    <column id="64" parent="31" name="meal_meal_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10054</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="65" parent="31" name="menu_menu_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10054</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="66" parent="31" name="meal_menu_pkey">
-      <ObjectId>43393</ObjectId>
-      <StateNumber>10054</StateNumber>
-      <ColNames>meal_meal_id
-menu_menu_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="67" parent="31" name="meal_menu_pkey">
-      <ObjectId>43394</ObjectId>
-      <StateNumber>10054</StateNumber>
-      <ColNames>meal_meal_id
-menu_menu_id</ColNames>
-      <UnderlyingIndexName>meal_menu_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="68" parent="31" name="fkjnshq8lmt2buux7vmhhhika92">
-      <ObjectId>43441</ObjectId>
-      <StateNumber>10064</StateNumber>
-      <ColNames>meal_meal_id</ColNames>
-      <RefTableId>43234</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>meal</RefTableName>
-      <RefKeyName>meal_pkey</RefKeyName>
-      <RefColNames>meal_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="69" parent="31" name="fkbw02um1e9fkmfun991fup51b1">
-      <ObjectId>43436</ObjectId>
-      <StateNumber>10063</StateNumber>
-      <ColNames>menu_menu_id</ColNames>
-      <RefTableId>43255</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>menu</RefTableName>
-      <RefKeyName>menu_pkey</RefKeyName>
-      <RefColNames>menu_id</RefColNames>
-    </foreign-key>
-    <column id="70" parent="32" name="meal_meal_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10055</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="71" parent="32" name="subscription_subscription_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10055</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="72" parent="32" name="meal_subscription_pkey">
-      <ObjectId>43398</ObjectId>
-      <StateNumber>10055</StateNumber>
-      <ColNames>meal_meal_id
-subscription_subscription_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="73" parent="32" name="meal_subscription_pkey">
-      <ObjectId>43399</ObjectId>
-      <StateNumber>10055</StateNumber>
-      <ColNames>meal_meal_id
-subscription_subscription_id</ColNames>
-      <UnderlyingIndexName>meal_subscription_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="74" parent="32" name="fksjq1lajye4f92u4lnoyqwu1ca">
-      <ObjectId>43451</ObjectId>
-      <StateNumber>10066</StateNumber>
-      <ColNames>meal_meal_id</ColNames>
-      <RefTableId>43234</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>meal</RefTableName>
-      <RefKeyName>meal_pkey</RefKeyName>
-      <RefColNames>meal_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="75" parent="32" name="fkspxmbhhaltts5fli7ib0qljml">
-      <ObjectId>43446</ObjectId>
-      <StateNumber>10065</StateNumber>
-      <ColNames>subscription_subscription_id</ColNames>
-      <RefTableId>43407</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>subscription</RefTableName>
-      <RefKeyName>subscription_pkey</RefKeyName>
-      <RefColNames>subscription_id</RefColNames>
-    </foreign-key>
-    <column id="76" parent="33" name="menu_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>9992</StateNumber>
-      <DefaultExpression>nextval(&apos;menu_menu_id_seq&apos;::regclass)</DefaultExpression>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="77" parent="33" name="active">
-      <Position>2</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>9992</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="78" parent="33" name="daily_meal">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>9992</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="79" parent="33" name="daily_meal_price">
-      <Position>4</Position>
-      <DataType>double precision|0s</DataType>
-      <StateNumber>9992</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <column id="80" parent="33" name="menu_name">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9992</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="81" parent="33" name="menu_pkey">
-      <ObjectId>43259</ObjectId>
-      <StateNumber>9992</StateNumber>
-      <ColNames>menu_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="82" parent="33" name="menu_pkey">
-      <ObjectId>43260</ObjectId>
-      <StateNumber>9992</StateNumber>
-      <ColNames>menu_id</ColNames>
-      <UnderlyingIndexName>menu_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <column id="83" parent="34" name="menu_menu_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10056</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="84" parent="34" name="meal_meal_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10056</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="85" parent="34" name="menu_meal_pkey">
-      <ObjectId>43403</ObjectId>
-      <StateNumber>10056</StateNumber>
-      <ColNames>menu_menu_id
-meal_meal_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="86" parent="34" name="menu_meal_pkey">
-      <ObjectId>43404</ObjectId>
-      <StateNumber>10056</StateNumber>
-      <ColNames>menu_menu_id
-meal_meal_id</ColNames>
-      <UnderlyingIndexName>menu_meal_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="87" parent="34" name="fk2ibnk6vr8vexy4y8m3jswjxlj">
-      <ObjectId>43461</ObjectId>
-      <StateNumber>10068</StateNumber>
-      <ColNames>menu_menu_id</ColNames>
-      <RefTableId>43255</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>menu</RefTableName>
-      <RefKeyName>menu_pkey</RefKeyName>
-      <RefColNames>menu_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="88" parent="34" name="fksit7afyudhlxmkr6051vr37rq">
-      <ObjectId>43456</ObjectId>
-      <StateNumber>10067</StateNumber>
-      <ColNames>meal_meal_id</ColNames>
-      <RefTableId>43234</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>meal</RefTableName>
-      <RefKeyName>meal_pkey</RefKeyName>
-      <RefColNames>meal_id</RefColNames>
-    </foreign-key>
-    <column id="89" parent="35" name="subscription_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10057</StateNumber>
-      <DefaultExpression>nextval(&apos;subscription_subscription_id_seq&apos;::regclass)</DefaultExpression>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="90" parent="35" name="delivery">
-      <Position>2</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>10057</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="91" parent="35" name="time">
-      <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>10057</StateNumber>
-      <TypeId>1114</TypeId>
-    </column>
-    <index id="92" parent="35" name="subscription_pkey">
-      <ObjectId>43411</ObjectId>
-      <StateNumber>10057</StateNumber>
-      <ColNames>subscription_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="93" parent="35" name="subscription_pkey">
-      <ObjectId>43412</ObjectId>
-      <StateNumber>10057</StateNumber>
-      <ColNames>subscription_id</ColNames>
-      <UnderlyingIndexName>subscription_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="94" parent="35" name="fkfolq478ql7hqtb02mtwaog4i">
-      <ObjectId>43466</ObjectId>
-      <StateNumber>10069</StateNumber>
-      <ColNames>subscription_id</ColNames>
-      <RefTableId>43287</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>users</RefTableName>
-      <RefKeyName>users_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="95" parent="36" name="subscription_subscription_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>10058</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="96" parent="36" name="days">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>10058</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="97" parent="36" name="fkda6ju7j02qbgfby000wtjuv2c">
-      <ObjectId>43471</ObjectId>
-      <StateNumber>10070</StateNumber>
-      <ColNames>subscription_subscription_id</ColNames>
-      <RefTableId>43407</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>subscription</RefTableName>
-      <RefKeyName>subscription_pkey</RefKeyName>
-      <RefColNames>subscription_id</RefColNames>
-    </foreign-key>
-    <column id="98" parent="37" name="transaction_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>9996</StateNumber>
-      <DefaultExpression>nextval(&apos;transaction_transaction_id_seq&apos;::regclass)</DefaultExpression>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="99" parent="37" name="date">
-      <Position>2</Position>
-      <DataType>timestamp|0s</DataType>
-      <StateNumber>9996</StateNumber>
-      <TypeId>1114</TypeId>
-    </column>
-    <column id="100" parent="37" name="delivery">
-      <Position>3</Position>
-      <DataType>boolean|0s</DataType>
-      <StateNumber>9996</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="101" parent="37" name="price">
-      <Position>4</Position>
-      <DataType>real|0s</DataType>
-      <StateNumber>9996</StateNumber>
-      <TypeId>700</TypeId>
-    </column>
-    <column id="102" parent="37" name="status">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>9996</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="103" parent="37" name="time">
-      <Position>6</Position>
-      <DataType>time|0s</DataType>
-      <StateNumber>9996</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <index id="104" parent="37" name="transaction_pkey">
-      <ObjectId>43283</ObjectId>
-      <StateNumber>9996</StateNumber>
-      <ColNames>transaction_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="105" parent="37" name="transaction_pkey">
-      <ObjectId>43284</ObjectId>
-      <StateNumber>9996</StateNumber>
-      <ColNames>transaction_id</ColNames>
-      <UnderlyingIndexName>transaction_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="106" parent="37" name="fk5gxun4lpoxsfwiqj4fy50s0ej">
-      <ObjectId>43351</ObjectId>
-      <StateNumber>10009</StateNumber>
-      <ColNames>transaction_id</ColNames>
-      <RefTableId>43287</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>users</RefTableName>
-      <RefKeyName>users_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="107" parent="38" name="id">
+    <column id="100" parent="37" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -767,31 +705,31 @@ meal_meal_id</ColNames>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="108" parent="38" name="name">
+    <column id="101" parent="37" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>9997</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="109" parent="38" name="password">
+    <column id="102" parent="37" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>9997</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="110" parent="38" name="role">
+    <column id="103" parent="37" name="role">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>9997</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="111" parent="38" name="users_pkey">
+    <index id="104" parent="37" name="users_pkey">
       <ObjectId>43294</ObjectId>
       <StateNumber>9997</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="112" parent="38" name="users_pkey">
+    <key id="105" parent="37" name="users_pkey">
       <ObjectId>43295</ObjectId>
       <StateNumber>9997</StateNumber>
       <ColNames>id</ColNames>
