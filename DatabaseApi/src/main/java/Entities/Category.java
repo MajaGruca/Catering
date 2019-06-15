@@ -2,6 +2,7 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,7 @@ public class Category implements Serializable {
 ////            inverseJoinColumns = { @JoinColumn(name = "meal_id",referencedColumnName = "meal_id") }
 ////    )
     @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Meal> meal;
+    private Set<Meal> meal = new HashSet<Meal>();
 
     public Category() {
     }

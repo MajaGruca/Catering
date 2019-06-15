@@ -2,6 +2,7 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ public class Menu implements Serializable {
 //            joinColumns ={@JoinColumn (name = "menu_menu_id", referencedColumnName = "menu_id")},
 //            inverseJoinColumns = {@JoinColumn(name = "meal_meal_id", referencedColumnName = "meal_id")}
 //    )
-    private Set<Meal> meal;
+    private Set<Meal> meal = new HashSet<Meal>();
 
     @Column(name="menu_name")
     private String name;

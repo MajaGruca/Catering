@@ -16,14 +16,9 @@ public class Subscription implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-        private Set<Meal> meals = new HashSet<Meal>();
-
-//    @ManyToOne
-//    private Users user;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "meal_id")
+    private Set<Meal> meals = new HashSet<Meal>();
 
     @ElementCollection
     @Column(name="days")
@@ -59,5 +54,29 @@ public class Subscription implements Serializable {
 
     public void setMeals(Set<Meal> meals) {
         this.meals = meals;
+    }
+
+    public List<Integer> getDays() {
+        return days;
+    }
+
+    public void setDays(List<Integer> days) {
+        this.days = days;
+    }
+
+    public Boolean getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Boolean delivery) {
+        this.delivery = delivery;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 }

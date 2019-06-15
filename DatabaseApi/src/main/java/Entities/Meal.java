@@ -2,6 +2,7 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -29,10 +30,10 @@ public class Meal implements Serializable {
     private String owner;
 
     @ManyToMany(targetEntity = Category.class, cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Category> category;
+    private Set<Category> category = new HashSet<Category>();
 
     @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Menu> menu;
+    private Set<Menu> menu = new HashSet<Menu>();
 
     public Meal() {
     }
