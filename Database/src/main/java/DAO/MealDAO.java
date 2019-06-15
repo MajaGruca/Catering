@@ -116,30 +116,9 @@ public class MealDAO {
 
     public static void addMealToCategories(Meal meal, Set<Category> category) {
         init();
-//        Set<Category> categoriesList;
-//        if (meal.getCategory() == null) {
-//            System.out.println("Równa się null");
-//            categoriesList = category;
-//            meal.setCategory(categoriesList);
-//        }
-//        else {
-//            System.out.println("Równa się " + meal.getCategory());
-//            categoriesList = meal.getCategory();
-//            categoriesList.addAll(category);
-//        }
         for (int i=0; i<category.size(); i++) {
             addMealToCategory(meal, category.iterator().next());
         }
-//        try {
-//            em.getTransaction().begin();
-//            em.merge(meal);
-//            em.flush();
-//            em.getTransaction().commit();
-//            System.out.println("Zapisano w bazie: " + meal.getName());
-//        }
-//        catch(Exception e) {
-//            System.err.println("Blad przy dodawaniu rekordu: " + e);
-//        }
     }
 
     public static void addMealToCategory(Meal meal, Category category) {

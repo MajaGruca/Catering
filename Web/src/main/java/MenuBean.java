@@ -4,8 +4,8 @@ import Services.Manager;
 import Services.SessionManager;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.Set;
 
 @ManagedBean
 @Named
-@SessionScoped
+@ApplicationScoped
 public class MenuBean implements Serializable{
 
     @EJB(lookup="java:global/Database/ManagerImpl")
@@ -28,12 +28,10 @@ public class MenuBean implements Serializable{
     private String [] chosenMenus;
     private static String [] chosenMeals2;
     private String [] MealsToChoose;
-    private static List<String> cm = new ArrayList<String>();
     private String dailyMeal;
-    private String chosenMOTD;
-    private String newId;
     private static Boolean active;
     private static Menu menu = new Menu();
+    private static boolean edit = false;
 
 
     public List<Menu> getAllMenus() {
@@ -41,52 +39,23 @@ public class MenuBean implements Serializable{
     }
 
     public void addMenu() {
-        System.out.println("add menu");
-        Set<Meal> resultSet = null;
-        if (chosenMeals2!=null) {
-            System.out.println("add menu 1 ");
-        if (chosenMeals2.length != 0) {
-            System.out.println("add menu 2 " + chosenMeals2[0]);
-            resultSet = getMealSet(chosenMeals2);
-            menu.setMeal(resultSet);
-            System.out.println(menu.getMeal().iterator().next().getName());
+        if(MenuBean.menu.getName() != null) {
+            Set<Meal> resultSet = new HashSet<>();
+                if (chosenMeals2 != null) {
+                    resultSet = getMealSet(chosenMeals2);
+                    chosenMeals2 = null;
+                    menu.setMeal(resultSet);
+                } else {
+                    menu.setMeal(resultSet);
+            }
+            manager.createMenu(menu, resultSet);
         }
-
-            System.out.println("add menu " + menu.getName());
-        }
-        System.out.println("Po managerze " + menu.getMeal().iterator().next().getName());
-        manager.createMenu(menu, resultSet);
     }
 
     public List<Meal> getMealsNotInMenu() {
         if (menu.getId() == 0) return new ArrayList<Meal>();
         return manager.getMealsNotInMenu(menu);
     }
-
-    public void updateMealsMenu() {
-        if (menu.getName()!= null) {
-            System.out.println("Pierwsze meale " + menu.getMeal());
-            menu.setMeal(addTwoSets(menu.getMeal(), getMealSet(chosenMeals)));
-            manager.updateMenu(menu);
-        }
-    }
-
-    public Manager getManager() {
-        return manager;
-    }
-
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
-
-    public String[] getChosenMenus() {
-        return chosenMenus;
-    }
-
-    public void setChosenMenus(String[] chosenMenus) {
-        this.chosenMenus = chosenMenus;
-    }
-
 
     public String[] getChosenMeals2() {
         return chosenMeals2;
@@ -124,7 +93,6 @@ public class MenuBean implements Serializable{
             meals.add(sessionManagerBean.getMealById(Integer.parseInt(x)));
             System.out.println("Meal: " +  x);
         }
-        chosenMeals2 = null;
         return meals;
     }
 
@@ -135,43 +103,16 @@ public class MenuBean implements Serializable{
         return 0;
     }
 
-    public String[] getMealsToChoose() {
-        return MealsToChoose;
+    public List<String> getMealsNames(Set<Meal> list) {
+        if (list.size() != 0) return Helper.getMealsNames(list);
+        return new ArrayList<>();
     }
 
-    public void setMealsToChoose(String[] mealsToChoose) {
-        MealsToChoose = mealsToChoose;
+    public String getMealName (int id)
+    {
+        if(id != 0) return manager.getMenuById(id).getName();
+        else return "";
     }
-
-    public static Set<Meal> addTwoSets(Set<Meal> one, Set<Meal> two) {
-        Set<Meal> newSet = new HashSet<Meal>(one);
-        newSet.addAll(two);
-        return newSet;
-    }
-
-    public void updateActiveMenu() {
-        if(menu.getName()!=null) {
-            menu.setActive(active);
-            manager.updateMenu(menu);
-        }
-    }
-
-    public void setMOTD() {
-        manager.defineOOTD(menu, menu.getId());
-    }
-
-    public void setMOTDPrice() {
-        manager.changePriceOOTD(menu, menu.getDaily_meal_price());
-    }
-
-    public String getChosenMOTD() {
-        return chosenMOTD;
-    }
-
-    public void setChosenMOTD(String chosenMOTD) {
-        this.chosenMOTD = chosenMOTD;
-    }
-
     public List<Meal> getMealsFromMenu()
     {
         List<Meal> result = new ArrayList<Meal>();
@@ -179,25 +120,30 @@ public class MenuBean implements Serializable{
             return manager.getMealsFromMenu(menu);
         else return result;
     }
-
-    public String getNewId() {
-        return newId;
+    public void edit(Menu menu) {
+        MenuBean.menu = menu;
+        List<String> tmp = new ArrayList<>();
+        for (Meal x : menu.getMeal()) {
+            tmp.add(String.valueOf(x.getId()));
+        }
+        chosenMeals = tmp.stream().toArray(String[]::new);
+    }
+    public void updateMenu() {
+        addSubscriptionDetails();
     }
 
-    public void setNewId(String newId) {
-        this.newId = newId;
+    public void addSubscriptionDetails() {
+        if (menu.getName() != null && edit == true) {
+            Set<Meal> newSet = new HashSet<>();
+            newSet = getMealsSet(chosenMeals);
+            menu.setMeal(newSet);
+            manager.updateMenu(menu);
+            menu = new Menu();
+            edit = false;
+        }
     }
-
     public List<Meal> getAllMeals() {
         return sessionManagerBean.getAllMeals();
-    }
-
-    public List<String> getCm() {
-        return cm;
-    }
-
-    public void setCm(List<String> cm) {
-        MenuBean.cm = cm;
     }
 
     public String[] getChosenMeals() {
@@ -214,5 +160,27 @@ public class MenuBean implements Serializable{
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+
+    public Set<Meal> getMealsSet(String[] list) {
+        Set<Meal> meals = new HashSet<Meal>();
+        if (list != null) {
+            for (String x : list) {
+                meals.add(sessionManagerBean.getMealById(Integer.parseInt(x)));
+                System.out.println("meal: " + Integer.parseInt(x));
+            }
+            chosenMeals = null;
+        }
+        return meals;
+    }
+
+    public boolean isEdit() {
+        return edit;
+    }
+
+    public void setEdit(boolean edit) {
+        this.edit = edit;
+        if (edit) updateMenu();
     }
 }
