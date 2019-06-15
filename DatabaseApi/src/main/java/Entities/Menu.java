@@ -14,7 +14,11 @@ public class Menu implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "menu_meals",  joinColumns = {
+            @JoinColumn(name = "menu_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "meal_id",
+                    nullable = false, updatable = false) })
     private Set<Meal> meal;
 
     @Column(name="menu_name")

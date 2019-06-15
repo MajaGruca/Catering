@@ -73,7 +73,8 @@ public class MenuDAO {
         init();
         try {
             em.getTransaction().begin();
-            em.remove(menu);
+            Menu old_menu = em.find(Menu.class, menu.getId());
+            em.remove(old_menu);
             em.getTransaction().commit();
             em.flush();
             System.out.println("Usunieto z bazy: Menu " + menu.getId());
@@ -117,6 +118,7 @@ public class MenuDAO {
               //  old_menu.setMeal(menu.getMeal());
                 for (Meal x : old_menu.getMeal()) {
                     if (!menu.getMeal().contains(x)) old_menu.getMeal().remove(x);
+                    if (old_menu.getDaily_meal() == x.getId()) old_menu.setDaily_meal(0);
                 }
                 for (Meal x : menu.getMeal()) {
                     if (!old_menu.getMeal().contains(x)) old_menu.getMeal().add(x);
@@ -163,8 +165,9 @@ public class MenuDAO {
         init();
         try {
             em.getTransaction().begin();
-            menu.setDaily_meal(id);
-            em.merge(menu);
+            Menu old_menu = em.find(Menu.class, menu.getId());
+            old_menu.setDaily_meal(id);
+            em.merge(old_menu);
             em.getTransaction().commit();
             em.flush();
         }
@@ -177,8 +180,9 @@ public class MenuDAO {
         init();
         try {
             em.getTransaction().begin();
-            menu.setDaily_meal_price(price);
-            em.merge(menu);
+            Menu old_menu = em.find(Menu.class, menu.getId());
+            old_menu.setDaily_meal_price(price);
+            em.merge(old_menu);
             em.getTransaction().commit();
             em.flush();
         }

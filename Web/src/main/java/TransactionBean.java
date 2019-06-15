@@ -11,7 +11,9 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @ManagedBean
 @Named
@@ -44,11 +46,20 @@ public class TransactionBean implements Serializable {
     List<Transaction> getAllTransactions() {
        return employee.getAllTransactions();
     }
-
+    public Set<Meal> getMealsSet(String[] list) {
+        Set<Meal> meals = new HashSet<Meal>();
+        for (String x : list) {
+            meals.add(sessionManagerBean.getMealById(Integer.parseInt(x)));
+            System.out.println("meal: " + Integer.parseInt(x));
+        }
+        chosenMeals = null;
+        return meals;
+    }
     public void addTransaction() {
-        if (transaction.getMeals() != null) {
+        if (chosenMeals != null) {
             Date d = new Date();
             Double price = 0.0;
+            transaction.setMeals(getMealsSet(chosenMeals));
             transaction.setDate(d);
             transaction.setTime(new Time(d.getTime()));
             for (Meal x : transaction.getMeals()) {

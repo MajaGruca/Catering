@@ -110,7 +110,7 @@ public class MenuBean implements Serializable{
 
     public String getMealName (int id)
     {
-        if(id != 0) return manager.getMenuById(id).getName();
+        if(id != 0) return sessionManagerBean.getMealById(id).getName();
         else return "";
     }
     public List<Meal> getMealsFromMenu()
@@ -128,6 +128,10 @@ public class MenuBean implements Serializable{
         }
         chosenMeals = tmp.stream().toArray(String[]::new);
     }
+    public void remove(Menu menu) {
+        manager.removeMenu(menu);
+    }
+
     public void updateMenu() {
         addSubscriptionDetails();
     }

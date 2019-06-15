@@ -53,7 +53,6 @@ public class MOTDBean implements Serializable{
 
     public void setMOTD() {
         manager.defineOOTD(menu, Integer.parseInt(mealId));
-        menu = new Menu();
     }
 
     public String getNewId() {

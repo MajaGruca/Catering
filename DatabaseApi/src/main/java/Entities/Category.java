@@ -2,7 +2,6 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,9 +15,9 @@ public class Category implements Serializable {
 
     @Column(name = "name")
     private String name;
-    
-    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Meal> meal = new HashSet<Meal>();
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private Set<Meal> meal;
 
     public Category() {
     }

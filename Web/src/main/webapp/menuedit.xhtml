@@ -44,6 +44,10 @@
                                          title="Edit"
                                          actionListener="#{menuBean.edit(menu)}"
                                          ajax="false" />
+                        <p:commandButton icon="ui-icon-trash"
+                                         title="Usuń"
+                                         actionListener="#{menuBean.remove(menu)}"
+                                         ajax="false" />
                     </p:column>
                 </p:dataTable>
             </h:form>

@@ -21,6 +21,10 @@ public class Subscription implements Serializable {
     private int id;
 
     @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "subscription_meals",  joinColumns = {
+            @JoinColumn(name = "subscription_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "meal_id",
+                    nullable = false, updatable = false) })
     private Set<Meal> meals = new HashSet<Meal>();
 
     @ElementCollection
