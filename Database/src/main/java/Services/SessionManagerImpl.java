@@ -3,11 +3,14 @@ package Services;
 import DAO.CategoryDAO;
 import DAO.MealDAO;
 import DAO.MenuDAO;
+import DAO.UserDAO;
 import Entities.Category;
 import Entities.Meal;
 import Entities.Menu;
+import Entities.Users;
 
 import javax.ejb.Stateless;
+import javax.xml.registry.infomodel.User;
 import java.util.List;
 import java.util.Set;
 
@@ -70,5 +73,11 @@ public class SessionManagerImpl implements SessionManager {
         return null;
     }
 
+    public Users getUserByName(String name) {
+        return UserDAO.getUsersbyName(name);
+    }
 
+    public List<Meal> getAllMealsFromUser(String user) {
+        return MealDAO.getAllMealsFromUser(user);
+    }
 }

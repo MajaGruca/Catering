@@ -2,6 +2,7 @@ package Services;
 
 import Entities.Category;
 import Entities.Meal;
+import Entities.Users;
 
 import javax.ejb.Remote;
 import java.util.List;
@@ -22,4 +23,6 @@ public interface SessionManager {
     Meal getMealById(int id);
     List<Meal> getAllMealsFromMenu(int menuid);
     Meal getMealByName(String name);
+    Users getUserByName(String name);
+    List<Meal> getAllMealsFromUser(String user);
 }

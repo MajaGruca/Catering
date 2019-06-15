@@ -1,7 +1,4 @@
-import Entities.Category;
-import Entities.Meal;
-import Entities.Menu;
-import Entities.Subscription;
+import Entities.*;
 import Services.SessionManager;
 import Services.SiteClient;
 
@@ -35,7 +32,7 @@ public class SubscriptionBean implements Serializable{
     Map<String, Integer> results = new HashMap<>();
 
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMeals();
+        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
     @PostConstruct
     public void init(){
@@ -135,7 +132,9 @@ public class SubscriptionBean implements Serializable{
 
     public void addSubscription() {
         addSubscriptionDetails();
-        client.addSubscription(subscripton);
+        Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
+//        Subscription currSub = client.getSubscriptionById();
+        client.addSubscription(curr, subscripton);
         SubscriptionBean.subscripton = new Subscription();
     }
 

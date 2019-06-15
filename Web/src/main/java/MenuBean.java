@@ -147,7 +147,7 @@ public class MenuBean implements Serializable{
         }
     }
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMeals();
+        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
 
     public String[] getChosenMeals() {

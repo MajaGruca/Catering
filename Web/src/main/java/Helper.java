@@ -2,6 +2,8 @@ import Entities.Meal;
 import Services.SessionManager;
 
 import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,4 +25,41 @@ public class Helper {
         return newSet;
     }
 
+
+    public static String getCurrUser()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.getRemoteUser();
+    }
+
+    public static Boolean userRoleManager()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Manager") || ec.isUserInRole("Admin"));
+    }
+
+
+    public static Boolean userRoleEmployee1()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Employee1") || ec.isUserInRole("Admin"));
+    }
+
+    public static Boolean userRoleEmployee2()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Employee2") || ec.isUserInRole("Admin"));
+    }
+
+    public static Boolean userRoleClient()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Client") || ec.isUserInRole("Admin"));
+    }
+
+    public static Boolean userRoleAdmin()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Admin");
+    }
 }

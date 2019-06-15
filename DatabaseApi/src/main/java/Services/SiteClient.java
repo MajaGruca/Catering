@@ -1,8 +1,6 @@
 package Services;
 
-import Entities.Meal;
-import Entities.Menu;
-import Entities.Subscription;
+import Entities.*;
 
 import javax.ejb.Remote;
 import java.sql.Time;
@@ -18,4 +16,8 @@ public interface SiteClient {
     void cancelSubscribtion(Subscription subscription);
     List<Subscription> getAllSubscriptions();
     void updateSubscription(Subscription sub);
+    void updateUser(Users user);
+    void addTransaction(Users user, Transaction transaction);
+    void addSubscription(Users user, Subscription subscription);
+    Subscription getSubscriptionById(int id);
 }

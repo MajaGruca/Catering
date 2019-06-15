@@ -1,7 +1,4 @@
-import Entities.Category;
-import Entities.Meal;
-import Entities.Menu;
-import Entities.Subscription;
+import Entities.*;
 import Services.Manager;
 import Services.SessionManager;
 import Services.SiteClient;
@@ -14,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -52,6 +50,8 @@ import java.util.*;
                     meal.setCategory(getCategorySet(chosenCategories));
                 }
 //                if (chosenMenus.length != 0) meal.setMenus(getMenuSet(chosenMenus));
+//                Users curr = sessionManagerBean.getUserByName(getCurrUser());
+                meal.setOwner(Helper.getCurrUser());
                 sessionManagerBean.addMealToMenu(meal);
                 meal = new Meal();
             }
@@ -143,39 +143,33 @@ import java.util.*;
 
     public String getCurrUser()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.getRemoteUser();
+        return Helper.getCurrUser();
     }
 
     public Boolean userRoleManager()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return (ec.isUserInRole("Manager") || ec.isUserInRole("Admin"));
+        return Helper.userRoleManager();
     }
 
 
     public Boolean userRoleEmployee1()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return (ec.isUserInRole("Employee1") || ec.isUserInRole("Admin"));
+        return Helper.userRoleEmployee1();
     }
 
     public Boolean userRoleEmployee2()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return (ec.isUserInRole("Employee2") || ec.isUserInRole("Admin"));
+        return Helper.userRoleEmployee2();
     }
 
     public Boolean userRoleClient()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return (ec.isUserInRole("Client") || ec.isUserInRole("Admin"));
+        return Helper.userRoleClient();
     }
 
     public Boolean userRoleAdmin()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.isUserInRole("Admin");
+        return Helper.userRoleAdmin();
     }
 
     public String[] getChosenMeals() {
