@@ -155,13 +155,13 @@ public class SubscriptionBean implements Serializable{
 
     public void updateSubscription() {
         addSubscriptionDetails();
+        client.updateSubscription(subscripton);
         subscripton = new Subscription();
     }
 
     public void addSubscriptionDetails() {
         subscripton.setDays(changeDaysToInt(days));
         subscripton.setMeals(getMealsSet(chosenMeals));
-        client.updateSubscription(subscripton);
         days = null;
     }
     public void remove(Subscription sub) {
