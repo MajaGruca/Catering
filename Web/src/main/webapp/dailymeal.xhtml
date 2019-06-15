@@ -17,6 +17,11 @@
             <p:button value="Dodaj posiłek dnia" outcome="/dailymeal" icon="pi pi-star" style="margin-right:20px;">
             </p:button>
             <h:form>
+            <h:panelGrid id="panel" columns="3" border="1"
+                         cellpadding="10" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="Wybierz danie dnia"/>
+                </f:facet>
                 Wybierz menu: <br/>
                 <p:selectOneMenu value="#{mOTDBean.newId}">
                     <f:selectItems value="#{mOTDBean.getAllMenus()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}" />
@@ -27,11 +32,14 @@
                     <f:selectItems value="#{mOTDBean.menu.meal}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}">
                     </f:selectItems>
                 </p:selectOneMenu>
-                <p:commandButton value="Dodaj" action="#{mOTDBean.setMOTD()}"/><br/>
+                <h:outputText value="" />
                 Wpisz cenę posiłku dnia: <br/>
-                <p:inputNumber value="#{mOTDBean.price}"/>
-                <p:commandButton value="Zmien" action="#{mOTDBean.setMOTDPrice()}" update="@form"/><br/>
-            </h:form>
+                <p:inputNumber value="#{mOTDBean.price}"/><br/>
+                <p:commandButton value="Zmien" action="#{mOTDBean.setMOTDPrice()}" update="@form">
+                    <f:actionListener binding="#{mOTDBean.setMOTD()}" />
+                </p:commandButton><br/>
+            </h:panelGrid>
+        </h:form>
         </ui:define>
     </ui:composition>
 </h:body>

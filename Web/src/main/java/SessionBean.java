@@ -43,19 +43,10 @@ import java.util.*;
         return meal;
     }
 
-//    public void addMenu() {
-//        System.out.println("add menu");
-//        Menu menu = new Menu(null, 0, 0.0, true);
-//        manager.createMenu(menu);
-//    }
-
     public void addMeal() {
 
         System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("Manager"));
-        System.out.println("add meal 1");
-            System.out.println("add meal 2");
             if (meal != null) {
-                System.out.println("add meal 3");
                 System.out.println(meal.getName() + " " + meal.getCategory());
                 if (chosenCategories.length != 0) {
                     meal.setCategory(getCategorySet(chosenCategories));

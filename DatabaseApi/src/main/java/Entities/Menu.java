@@ -13,12 +13,7 @@ public class Menu implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany(targetEntity = Meal.class, cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "menu_meal",
-//            joinColumns ={@JoinColumn (name = "menu_menu_id", referencedColumnName = "menu_id")},
-//            inverseJoinColumns = {@JoinColumn(name = "meal_meal_id", referencedColumnName = "meal_id")}
-//    )
+    @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.PERSIST,CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private Set<Meal> meal;
 
     @Column(name="menu_name")
@@ -49,7 +44,10 @@ public class Menu implements Serializable {
     }
 
     public void setMeal(Set<Meal> meals) {
-        this.meal = meals;
+        if (this.meal != null) this.meal.clear();
+        if (meals != null) {
+            this.meal = meals;
+        }
     }
 
     public int getDaily_meal() {

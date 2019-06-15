@@ -15,13 +15,7 @@ public class Category implements Serializable {
 
     @Column(name = "name")
     private String name;
-
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-////    @JoinTable(
-////            name = "Meal_Category",
-////            joinColumns = { @JoinColumn(name = "category_id", referencedColumnName = "category_id") },
-////            inverseJoinColumns = { @JoinColumn(name = "meal_id",referencedColumnName = "meal_id") }
-////    )
+    
     @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
     private Set<Meal> meal;
 

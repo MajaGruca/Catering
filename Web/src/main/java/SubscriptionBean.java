@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.primefaces.component.dnd.Draggable.PropertyKeys.helper;
+
 @ManagedBean
 @Named
 @RequestScoped
@@ -105,8 +107,8 @@ public class SubscriptionBean implements Serializable{
         return result;
     }
 
-    public List<String> changeIntToDays(List<Integer> list) {
-        List<String> result = new ArrayList<>();
+    public Set<String> changeIntToDays(Set<Integer> list) {
+        Set<String> result = new HashSet<>();
         for (Integer x : list) {
             result.add(getKey(results, x));
             }
@@ -121,14 +123,11 @@ public class SubscriptionBean implements Serializable{
     }
 
     public List<String> getMealsNames(Set<Meal> list) {
-        List<String> result = new ArrayList<>();
-        for (Meal x : list) {
-            result.add(x.getName());
-        }
-        return result;
+        return Helper.getMealsNames(list);
     }
-    public List<Integer> changeDaysToInt(String [] list) {
-        List<Integer> resultList = new ArrayList<>();
+
+    public Set<Integer> changeDaysToInt(String [] list) {
+        Set<Integer> resultList = new HashSet<>();
 
         for (String x : list) {
             if (results.containsKey(x)) {

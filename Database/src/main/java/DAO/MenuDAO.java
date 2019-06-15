@@ -47,30 +47,19 @@ public class MenuDAO {
         } catch (Exception e) {
             System.err.println("Blad przy pobieraniu danych: " + e);
         }
-        return results.get(0);
+        if (results.size() > 0) return results.get(0);
+        return new Menu();
     }
 
     public static void addMenu(Menu menu, Set<Meal> meal) {
         init();
-        System.out.println("Jestem w addmenu: " + menu.getMeal().iterator().next().getName());
-        menu.setMeal(meal);
+        System.out.println("Jestem w addmenu: ");
+        if (menu.getDaily_meal_price() == null) {
+            menu.setDaily_meal_price(0.0);
+        }
         Set<Menu> tmp = new HashSet<>();
         try {
             em.getTransaction().begin();
-//            for (Meal x : meal) {
-//                if (x.getMenu()!= null){
-//                    tmp = x.getMenu();
-//                    tmp.add(menu);
-//                    x.setMenu(tmp);
-//                    tmp = null;
-//                }
-//                else {
-//                    tmp.add(menu);
-//                    x.setMenu(tmp);
-//                    tmp = null;
-//                }
-//                em.merge(x);
-//            }
             em.persist(menu);
             em.flush();
             System.out.println("Zapisano w bazie: Menu " + menu.getId() + " " + menu.getMeal());
@@ -102,24 +91,9 @@ public class MenuDAO {
 
     public static void addMeal(Meal meal) {
         init();
-//        Set<Meal> result = new HashSet<>();
-//        Set<Menu> result2 = new HashSet<>();
-//        if (menu.getMeals() == null) {
-//            result.add(meal);
-//            result2.add(menu);
-//
-//        } else {
-//            result = menu.getMeals();
-//            result2 = meal.getMenus();
-//            result.add(meal);
-//            result2.add(menu);
- //       }
         try {
             em.getTransaction().begin();
-//            menu.setMeals(result);
-//            meal.setMenus(result2);
             em.persist(meal);
-//            em.merge(menu);
             em.flush();
             System.out.println("menu.getmeals " + meal.getId());
         }
@@ -137,7 +111,17 @@ public class MenuDAO {
             Menu old_menu = em.find(Menu.class, menu.getId());
             if (!menu.getName().equals(old_menu.getName())) old_menu.setName(menu.getName());
             if (!menu.getActive().equals(old_menu.getActive())) old_menu.setActive(menu.getActive());
-            if (!menu.getMeal().equals(old_menu.getMeal())) old_menu.setMeal(menu.getMeal());
+            if (menu.getDaily_meal()!= old_menu.getDaily_meal() && menu.getDaily_meal() != 0) old_menu.setDaily_meal(menu.getDaily_meal());
+            if (menu.getDaily_meal_price()!= old_menu.getDaily_meal_price() && menu.getDaily_meal_price() != null) old_menu.setDaily_meal_price(menu.getDaily_meal_price());
+            if (!menu.getMeal().equals(old_menu.getMeal()) && menu.getMeal() != null) {
+              //  old_menu.setMeal(menu.getMeal());
+                for (Meal x : old_menu.getMeal()) {
+                    if (!menu.getMeal().contains(x)) old_menu.getMeal().remove(x);
+                }
+                for (Meal x : menu.getMeal()) {
+                    if (!old_menu.getMeal().contains(x)) old_menu.getMeal().add(x);
+            } }
+
             em.merge(old_menu);
             em.flush();
             System.out.println("updated Menu " + " " + menu.getId() + " " + old_menu.getId());
@@ -152,7 +136,7 @@ public class MenuDAO {
         List<Menu> results = new LinkedList<>();
         try {
             TypedQuery<Menu> query =
-                    em.createQuery("SELECT c FROM Menu c", Menu.class);
+                    em.createQuery("SELECT DISTINCT c FROM Menu c", Menu.class);
             results = query.getResultList();
         } catch (Exception e) {
             System.err.println("Error when trying to retrieve data from database: " + e);
@@ -218,9 +202,6 @@ public class MenuDAO {
     public static List<Meal> getMealsFromMenu (Menu menu) {
         List<Meal> results = new LinkedList<>();
         try {
-//            TypedQuery<Meal> query =
-//                    em.createQuery("SELECT p FROM Meal p JOIN p.menus c WHERE c.id = :id", Meal.class).setParameter("id", menu.getId());
-//            results = query.getResultList();
         } catch (Exception e) {
             System.err.println("Error when trying to retrieve data from database: " + e);
         }
