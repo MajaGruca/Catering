@@ -32,12 +32,11 @@
                     <f:selectItems value="#{mOTDBean.menu.meal}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}">
                     </f:selectItems>
                 </p:selectOneMenu>
-                <h:outputText value="" />
+                <p:commandButton value="Zmien" action="#{mOTDBean.setMOTD()}" update="@form" /><br/>
                 Wpisz cenę posiłku dnia: <br/>
                 <p:inputNumber value="#{mOTDBean.price}"/><br/>
-                <p:commandButton value="Zmien" action="#{mOTDBean.setMOTDPrice()}" update="@form">
-                    <f:actionListener binding="#{mOTDBean.setMOTD()}" />
-                </p:commandButton><br/>
+                <p:commandButton value="Zmien" action="#{mOTDBean.setMOTDPrice()}" update="@form" />
+                <br/>
             </h:panelGrid>
         </h:form>
         </ui:define>

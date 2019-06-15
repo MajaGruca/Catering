@@ -29,12 +29,16 @@ public class Meal implements Serializable {
     private String owner;
 
     @ManyToMany(targetEntity = Category.class, cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(name = "meal_categories",  joinColumns = {
+            @JoinColumn(name = "meal_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "category_id",
+                    nullable = false, updatable = false) })
     private Set<Category> category;
 
-    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "meal")
     private Set<Menu> menu;
 
-    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "meals")
     private Set<Subscription> subscription;
 
     public Meal() {

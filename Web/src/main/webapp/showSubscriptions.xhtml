@@ -31,6 +31,10 @@
                                      title="Edit"
                                      actionListener="#{subscriptionBean.edit(sub)}"
                                      ajax="false" />
+                    <p:commandButton icon="ui-icon-trash"
+                                     title="Usuń"
+                                     actionListener="#{subscriptionBean.remove(sub)}"
+                                     ajax="false" />
                 </p:column>
             </p:dataTable>
             </h:form>
@@ -53,7 +57,7 @@
                         <f:selectItems value="#{subscriptionBean.getAllDays()}" var="y" itemLabel="#{y}" itemValue="#{y}" />
                     </p:selectCheckboxMenu>
                     Godzina:
-                    <p:calendar id="time" value="#{subscriptionBean.date}" pattern="HH:mm" timeOnly="true"  />
+                    <p:calendar id="time" value="#{subscriptionBean.subscripton.time}" pattern="HH:mm" timeOnly="true"  />
                     Dostawa?:
                     <p:selectOneButton value="#{subscriptionBean.subscripton.delivery}">
                         <f:selectItem itemLabel="Tak" itemValue="#{true}" />

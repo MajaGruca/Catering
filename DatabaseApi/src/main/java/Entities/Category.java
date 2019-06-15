@@ -15,8 +15,8 @@ public class Category implements Serializable {
 
     @Column(name = "name")
     private String name;
-    
-    @ManyToMany(cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<Meal> meal;
 
     public Category() {

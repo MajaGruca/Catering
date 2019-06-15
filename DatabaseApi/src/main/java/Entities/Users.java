@@ -35,9 +35,9 @@ public class Users implements Serializable {
     @Column(name = "role")
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "subscription_id")
-    private Set<Subscription> subscriptions = new HashSet<Subscription>();
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "subscription_id")
+//    private Set<Subscription> subscriptions = new HashSet<Subscription>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "transaction_id")
@@ -75,13 +75,13 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public Set<Subscription> getSubscriptions() {
-        return subscriptions;
-    }
-
-    public void setSubscriptions(Set<Subscription> subscriptions) {
-        this.subscriptions = subscriptions;
-    }
+//    public Set<Subscription> getSubscriptions() {
+//        return subscriptions;
+//    }
+//
+//    public void setSubscriptions(Set<Subscription> subscriptions) {
+//        this.subscriptions = subscriptions;
+//    }
 
     public Set<Transaction> getTransactions() {
         return transactions;

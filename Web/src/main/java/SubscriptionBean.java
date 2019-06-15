@@ -165,5 +165,8 @@ public class SubscriptionBean implements Serializable{
         client.updateSubscription(subscripton);
         days = null;
     }
+    public void remove(Subscription sub) {
+        client.cancelSubscribtion(sub);
+    }
 
 }

@@ -60,7 +60,8 @@ public class SubscriptionDAO {
 
         try {
             em.getTransaction().begin();
-            em.remove(sub);
+            Subscription old_sub = em.find(Subscription.class, sub.getId());
+            em.remove(old_sub);
             em.getTransaction().commit();
             System.out.println("Usunieto z bazy: Sub " + sub.getId());
         }
