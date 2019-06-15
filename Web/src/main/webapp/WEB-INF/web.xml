@@ -40,7 +40,7 @@
             <http-method>GET</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>admin</role-name>
+            <role-name>Admin</role-name>
             <role-name>Manager</role-name>
             <role-name>Employee1</role-name>
             <role-name>Employee2</role-name>
@@ -58,7 +58,7 @@
     </login-config>
 
     <security-role>
-        <role-name>admin</role-name>
+        <role-name>Admin</role-name>
     </security-role>
     <security-role>
         <role-name>Manager</role-name>

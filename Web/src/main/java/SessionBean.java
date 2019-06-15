@@ -150,26 +150,26 @@ import java.util.*;
     public Boolean userRoleManager()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.isUserInRole("Manager");
+        return (ec.isUserInRole("Manager") || ec.isUserInRole("Admin"));
     }
 
 
     public Boolean userRoleEmployee1()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.isUserInRole("Employee1");
+        return (ec.isUserInRole("Employee1") || ec.isUserInRole("Admin"));
     }
 
     public Boolean userRoleEmployee2()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.isUserInRole("Employee2");
+        return (ec.isUserInRole("Employee2") || ec.isUserInRole("Admin"));
     }
 
     public Boolean userRoleClient()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        return ec.isUserInRole("Client");
+        return (ec.isUserInRole("Client") || ec.isUserInRole("Admin"));
     }
 
     public Boolean userRoleAdmin()
