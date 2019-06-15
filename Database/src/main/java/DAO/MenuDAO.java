@@ -233,4 +233,17 @@ public class MenuDAO {
         return newSet;
     }
 
+    public static void archivizeMenu(Menu menu) {
+        init();
+        //System.out.println("Jestem w addmenu: " + menu.getMeal().iterator().next().getName());
+        menu.setActive(false);
+        try {
+            em.getTransaction().begin();
+            em.persist(menu);
+            em.flush();
+            System.out.println("Zapisano w bazie: Archiwizacja menu " + menu.getId());
+        } catch (Exception e) {
+            System.err.println("Blad przy archiwizacji menu: " + e);
+        }
+    }
 }

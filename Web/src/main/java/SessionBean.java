@@ -1,8 +1,10 @@
 import Entities.Category;
 import Entities.Meal;
 import Entities.Menu;
+import Entities.Subscription;
 import Services.Manager;
 import Services.SessionManager;
+import Services.SiteClient;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -11,13 +13,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.security.Principal;
+import java.util.*;
 
 @ManagedBean
 @Named
@@ -30,12 +33,15 @@ import java.util.Set;
     @EJB(lookup="java:global/Database/ManagerImpl")
     private Manager manager;
 
+
     private static Meal meal = new Meal();
     private Meal chosenMeal = null;
+    private String [] days;
     private String categoryName;
     private String [] chosenCategories;
     private String [] chosenMenus;
     private String [] chosenMeals;
+    private static Subscription subscripton = new Subscription();
 
     public Meal getMeal() {
         return meal;
@@ -48,21 +54,16 @@ import java.util.Set;
 //    }
 
     public void addMeal() {
-
-        System.out.println(FacesContext.getCurrentInstance().getExternalContext().isUserInRole("Manager"));
-        System.out.println("add meal 1");
-            System.out.println("add meal 2");
-            if (meal != null) {
-                System.out.println("add meal 3");
-                System.out.println(meal.getName() + " " + meal.getCategory());
-                if (chosenCategories.length != 0) {
-                    meal.setCategory(getCategorySet(chosenCategories));
-                }
-//                if (chosenMenus.length != 0) meal.setMenus(getMenuSet(chosenMenus));
-                sessionManagerBean.addMealToMenu(meal);
-                meal = new Meal();
+        if (meal != null) {
+            System.out.println(meal.getName() + " " + meal.getCategory());
+            if (chosenCategories.length != 0) {
+                meal.setCategory(getCategorySet(chosenCategories));
             }
+//          if (chosenMenus.length != 0) meal.setMenus(getMenuSet(chosenMenus));
+            sessionManagerBean.addMealToMenu(meal);
+            meal = new Meal();
         }
+    }
 
     public void addCategory() {
         System.out.println("add category");
@@ -134,33 +135,63 @@ import java.util.Set;
         return menus;
     }
 
-    public Set<Meal> getMealsSet(String[] list) {
-        Set<Meal> menus = new HashSet<Meal>();
-        for (String x : list) {
-            menus.add(sessionManagerBean.getMealById(Integer.parseInt(x)));
-            System.out.println("meal: " + Integer.parseInt(x));
-        }
-        chosenMenus = null;
-        return menus;
-    }
-
     public void logout()
     {
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        context.invalidateSession();
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        HttpServletRequest request= (HttpServletRequest)ec.getRequest();
         try {
-            context.redirect("login.xhtml");
-        } catch (IOException e) {
+            ec.invalidateSession();
+            request.logout();
+
+            ec.redirect(request.getContextPath() + "/index.xhtml");
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    public String getCurrUser(){
-        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
-        return FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+    public String getCurrUser()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.getRemoteUser();
     }
 
-//    public List<Meal> getAllMeals(int menuId) {
-//        return
-//    }
+    public Boolean userRoleManager()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Manager");
+    }
+
+
+    public Boolean userRoleEmployee1()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Employee1");
+    }
+
+    public Boolean userRoleEmployee2()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Employee2");
+    }
+
+    public Boolean userRoleClient()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Client");
+    }
+
+    public Boolean userRoleAdmin()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Admin");
+    }
+
+    public String[] getChosenMeals() {
+        return chosenMeals;
+    }
+
+    public void setChosenMeals(String[] chosenMeals) {
+        this.chosenMeals = chosenMeals;
+    }
+
 }

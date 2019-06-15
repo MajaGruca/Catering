@@ -3,6 +3,7 @@ package Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,9 +29,9 @@ public class Subscription implements Serializable {
     private Boolean delivery;
 
     @Column(name="time")
-    private Time time;
+    private Date time;
 
-    public Subscription(Set<Meal> meals, List<Integer> days, Boolean delivery, Time time) {
+    public Subscription(Set<Meal> meals, List<Integer> days, Boolean delivery, Date time) {
         this.meals = meals;
         this.days = days;
         this.delivery = delivery;
@@ -53,7 +54,10 @@ public class Subscription implements Serializable {
     }
 
     public void setMeals(Set<Meal> meals) {
-        this.meals = meals;
+        this.meals.clear();
+        if (meals != null) {
+            this.meals.addAll(meals);
+        }
     }
 
     public List<Integer> getDays() {
@@ -72,11 +76,11 @@ public class Subscription implements Serializable {
         this.delivery = delivery;
     }
 
-    public Time getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 }

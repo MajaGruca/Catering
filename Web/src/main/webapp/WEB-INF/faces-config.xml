@@ -7,7 +7,7 @@
         <from-view-id>*</from-view-id>
             <navigation-case>
             <from-outcome>/addmeal</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
+            <to-view-id>/addMeal.xhtml</to-view-id>
             </navigation-case>
         <navigation-case>
             <from-outcome>/addcategory</from-outcome>
@@ -24,6 +24,14 @@
         <navigation-case>
             <from-outcome>/dailymeal</from-outcome>
             <to-view-id>/dailymeal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/addsubscription</from-outcome>
+            <to-view-id>/subscription.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/showsubscriptions</from-outcome>
+            <to-view-id>/showSubscriptions.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
