@@ -32,7 +32,7 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!--security-constraint>
+    <security-constraint>
         <web-resource-collection>
             <web-resource-name>Login</web-resource-name>
             <url-pattern>/*</url-pattern>
@@ -40,13 +40,13 @@
             <http-method>GET</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>admin</role-name>
+            <role-name>Admin</role-name>
             <role-name>Manager</role-name>
             <role-name>Employee1</role-name>
             <role-name>Employee2</role-name>
             <role-name>Client</role-name>
         </auth-constraint>
-    </security-constraint-->
+    </security-constraint>
 
     <login-config>
         <auth-method>BASIC</auth-method>
@@ -58,7 +58,7 @@
     </login-config>
 
     <security-role>
-        <role-name>admin</role-name>
+        <role-name>Admin</role-name>
     </security-role>
     <security-role>
         <role-name>Manager</role-name>

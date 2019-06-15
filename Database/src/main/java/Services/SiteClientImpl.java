@@ -18,7 +18,6 @@ import java.util.Set;
 @Remote(SiteClient.class)
 public class SiteClientImpl implements SiteClient {
 
-
     public void odrerMeal(Meal meal, Integer day, Boolean delivery, Time time) {
         Set<Meal> lmeal = null;
         lmeal.add(meal);

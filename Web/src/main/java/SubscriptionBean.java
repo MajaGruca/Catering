@@ -34,7 +34,6 @@ public class SubscriptionBean implements Serializable{
     private static Subscription subscripton = new Subscription();
     Map<String, Integer> results = new HashMap<>();
 
-
     public List<Meal> getAllMeals() {
         return sessionManagerBean.getAllMeals();
     }
@@ -156,13 +155,13 @@ public class SubscriptionBean implements Serializable{
 
     public void updateSubscription() {
         addSubscriptionDetails();
+        client.updateSubscription(subscripton);
         subscripton = new Subscription();
     }
 
     public void addSubscriptionDetails() {
         subscripton.setDays(changeDaysToInt(days));
         subscripton.setMeals(getMealsSet(chosenMeals));
-        client.updateSubscription(subscripton);
         days = null;
     }
     public void remove(Subscription sub) {

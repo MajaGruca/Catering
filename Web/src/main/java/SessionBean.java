@@ -8,12 +8,12 @@ import Services.SiteClient;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -130,13 +130,52 @@ import java.util.*;
     public void logout()
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        HttpSession httpSession = (HttpSession)ec.getSession(false);
-        httpSession.invalidate();
+        HttpServletRequest request= (HttpServletRequest)ec.getRequest();
         try {
-            ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
-        } catch (IOException e) {
+            ec.invalidateSession();
+            request.logout();
+
+            ec.redirect(request.getContextPath() + "/index.xhtml");
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getCurrUser()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.getRemoteUser();
+    }
+
+    public Boolean userRoleManager()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Manager") || ec.isUserInRole("Admin"));
+    }
+
+
+    public Boolean userRoleEmployee1()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Employee1") || ec.isUserInRole("Admin"));
+    }
+
+    public Boolean userRoleEmployee2()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Employee2") || ec.isUserInRole("Admin"));
+    }
+
+    public Boolean userRoleClient()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return (ec.isUserInRole("Client") || ec.isUserInRole("Admin"));
+    }
+
+    public Boolean userRoleAdmin()
+    {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        return ec.isUserInRole("Admin");
     }
 
     public String[] getChosenMeals() {

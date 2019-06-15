@@ -12,7 +12,6 @@ public class Hash {
         byte[] passwordBytes = password.getBytes();
         byte[] hash = md.digest(passwordBytes);
         String base64String = Base64.encodeBase64String(hash);
-        String sameCharactery = "0DPiKuNIrrVmD8IUCuw1hQxNqZc=";
 
         System.out.println("skrót hasła: \"" + base64String + "\" XXXXXX") ;
 

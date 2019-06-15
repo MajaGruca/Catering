@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+        <h:form>
+        <h:panelGrid id="panel" columns="2" border="1"
+                     cellpadding="10" cellspacing="1">
+            <f:facet name="header">
+                <h:outputText value="Posiłek"/>
+            </f:facet>
+            Nazwa: <br/>
+            <p:inputText value="#{sessionBean.meal.name}"/><br/>
+            Opis: <br/>
+            <p:inputText value="#{sessionBean.meal.description}"/>
+            Waga: <br/>
+            <p:inputNumber value="#{sessionBean.meal.weight}"/><br/>
+            Cena: <br/>
+            <p:inputNumber value="#{sessionBean.meal.price}"/>
+            Owner: <br/>
+            <p:inputText value="#{sessionBean.meal.owner}"/>
+            Kategoria <br/>
+            <p:selectCheckboxMenu value="#{sessionBean.chosenCategories}" label="Categories" multiple="true"
+                                  filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                <f:selectItems value="#{sessionBean.getAllCategories()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
+            </p:selectCheckboxMenu>
+        </h:panelGrid>
+        <h:commandButton value="Login" action="#{sessionBean.addMeal()}"/>
+        </h:form>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

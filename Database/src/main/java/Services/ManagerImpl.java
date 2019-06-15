@@ -3,7 +3,6 @@ package Services;
 import DAO.MenuDAO;
 import Entities.Meal;
 import Entities.Menu;
-import Exceptions.NotImplementedException;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -29,13 +28,7 @@ public class ManagerImpl implements Manager {
         MenuDAO.removeMenu(menu);
     }
 
-    public void archivizeMenu(Menu menu) {
-        try {
-            throw new NotImplementedException();//dopisac do DAO
-        } catch (NotImplementedException e) {
-            e.printStackTrace();
-        }
-    }
+    public void archivizeMenu(Menu menu) { MenuDAO.archivizeMenu(menu); }
 
     public void defineOOTD(Menu menu, int id) {
         MenuDAO.updateOOTD(menu,id);

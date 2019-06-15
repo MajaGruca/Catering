@@ -1,5 +1,6 @@
 import Entities.Meal;
 import Entities.Transaction;
+import Entities.Users;
 import Services.Employee;
 import Services.SessionManager;
 
@@ -26,6 +27,9 @@ public class TransactionBean implements Serializable {
     private SessionManager sessionManagerBean;
     private static Transaction transaction = new Transaction();
     private String [] chosenMeals;
+    private Users user;
+
+    public List<Users> getAllUsers() { return employee.getAllClients();}
 
     public String[] getChosenMeals() {
         return chosenMeals;
@@ -67,11 +71,25 @@ public class TransactionBean implements Serializable {
         }
     }
 
+    public List<Transaction> generateBill(Users user)
+    {
+        return employee.generateBill(user);
+    }
+
     public Transaction getTransaction() {
         return transaction;
     }
 
     public void setTransaction(Transaction transaction) {
         TransactionBean.transaction = transaction;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public String setUser(Users user) {
+        this.user = user;
+        return "/bill";
     }
 }
