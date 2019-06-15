@@ -6,10 +6,12 @@ import Services.SessionManager;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
@@ -19,7 +21,7 @@ import java.util.Set;
 
 @ManagedBean
 @Named
-@RequestScoped
+@SessionScoped
  public class SessionBean implements Serializable{
 
     @EJB(lookup="java:global/Database/SessionManagerImpl")
@@ -144,14 +146,18 @@ import java.util.Set;
 
     public void logout()
     {
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        HttpSession httpSession = (HttpSession)ec.getSession(false);
-        httpSession.invalidate();
+        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+        context.invalidateSession();
         try {
-            ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
+            context.redirect("login.xhtml");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getCurrUser(){
+        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
+        return FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
     }
 
 //    public List<Meal> getAllMeals(int menuId) {
