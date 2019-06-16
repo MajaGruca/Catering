@@ -53,5 +53,13 @@
             <from-outcome>/adduser</from-outcome>
             <to-view-id>/adduser.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>/showTransactions</from-outcome>
+            <to-view-id>/showTransactions.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>/transactionsForDelivery</from-outcome>
+            <to-view-id>/transactionsForDelivery.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

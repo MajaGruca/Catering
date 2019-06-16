@@ -5,6 +5,7 @@ import Services.SiteClient;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @ManagedBean
 @Named
@@ -30,19 +32,21 @@ public class SubscriptionBean implements Serializable{
     private String [] days;
     private String [] chosenMeals;
     private static Subscription subscripton = new Subscription();
-    private static String[] allCategoriesStr;
+    private static String[] allCategories;
+    private List<Meal> currentMeals;
+    private static Menu activeMenu = new Menu();
     Map<String, Integer> results = new HashMap<>();
 
     public static String[] getAllCategoriesStr() {
-        return allCategoriesStr;
+        return allCategories;
     }
 
     public static void setAllCategoriesStr(String[] allCategoriesStr) {
-        SubscriptionBean.allCategoriesStr = allCategoriesStr;
+        SubscriptionBean.allCategories = allCategoriesStr;
     }
 
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
+        return activeMenu.getMeal().stream().collect(Collectors.toList());
     }
     @PostConstruct
     public void init(){
@@ -51,7 +55,8 @@ public class SubscriptionBean implements Serializable{
         results.put("środa", 3);
         results.put("czwartek", 4);
         results.put("piątek", 5);
-        allCategoriesStr = getCategoriesNames(getAllCategories());
+        allCategories = getCategoriesNames(getAllCategoriesFromDb());
+        activeMenu = getActiveMenu();
     }
 
     public Set<Meal> getMealsFromMenu()
@@ -153,7 +158,6 @@ public class SubscriptionBean implements Serializable{
     public void addSubscription() {
         addSubscriptionDetails();
         Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
-//        Subscription currSub = client.getSubscriptionById();
         client.addSubscription(curr, subscripton);
         SubscriptionBean.subscripton = new Subscription();
     }
@@ -189,16 +193,41 @@ public class SubscriptionBean implements Serializable{
 
     public Menu getActiveMenu()
     {
-        return client.getActiveMenu();
+        if (client.getActiveMenu() != null) {
+            return client.getActiveMenu();
+        }
+        return null;
     }
 
-    public List<Category> getAllCategories() {
+    public List<Category> getAllCategoriesFromDb() {
         return sessionManagerBean.getAllCategories();
     }
 
-    public List<String> getCategoryNamesSet(Meal m) {
-        Set<Category> category = m.getCategory();
-        System.out.println(Helper.getCategoryNamesSet(category).get(0));
-        return Helper.getCategoryNamesSet(category);
+    public String getCategoryNamesSet(Set<Category> category) {
+        return Helper.getCategoryNamesSet(category).toString();
+    }
+
+    public static void setAllCategories(String[] allCategories) {
+        SubscriptionBean.allCategories = allCategories;
+    }
+
+    public String [] getAllCategories() {
+        return allCategories;
+    }
+
+    public List<Meal> getCurrentMeals() {
+        return currentMeals;
+    }
+
+    public void setCurrentMeals(List<Meal> currentMeals) {
+        this.currentMeals = currentMeals;
+    }
+
+    public void setActiveMenu(Menu activeMenu) {
+        this.activeMenu = activeMenu;
+    }
+
+    public String getMealName(int id) {
+        return sessionManagerBean.getMeal(id).getName();
     }
 }

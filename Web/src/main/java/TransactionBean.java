@@ -9,15 +9,13 @@ import Services.SessionManager;
 import Services.SiteClient;
 
 import javax.annotation.ManagedBean;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @ManagedBean
 @Named
@@ -39,7 +37,19 @@ public class TransactionBean implements Serializable {
     private static Transaction transaction = new Transaction();
     private String [] chosenMeals;
     private Users user;
+    private static List<String> deliveryOptions = new ArrayList<>();
+    private static List<String> nonDeliveryOptions = new ArrayList<>();
+    private List<String> editDelivery = new ArrayList<>();
 
+    @PostConstruct
+    public void init() {
+        nonDeliveryOptions.add("Przygotowywane");
+        nonDeliveryOptions.add("Wydane");
+        deliveryOptions.add("Przygotowywane");
+        deliveryOptions.add("Gotowe");
+        deliveryOptions.add("Dostarczane");
+        deliveryOptions.add("Dostarczone");
+    }
     public List<Users> getAllUsers() { return employee.getAllClients();}
 
     public String[] getChosenMeals() {
@@ -60,9 +70,14 @@ public class TransactionBean implements Serializable {
         return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
 
-    List<Transaction> getAllTransactions() {
+    public List<Transaction> getAllTransactions() {
        return employee.getAllTransactions();
     }
+
+    public List<Transaction> getAllTransactionsForDelivery() {
+        return employee.getTransactionsToDelivery();
+    }
+
     public Set<Meal> getMealsSet(String[] list) {
         Set<Meal> meals = new HashSet<Meal>();
         for (String x : list) {
@@ -72,6 +87,7 @@ public class TransactionBean implements Serializable {
         chosenMeals = null;
         return meals;
     }
+
     public void addTransaction() {
         if (chosenMeals != null) {
             Date d = new Date();
@@ -85,7 +101,6 @@ public class TransactionBean implements Serializable {
             transaction.setPrice(price);
             Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
             client.addTransaction(curr, transaction);
-//            employee.addTransaction(transaction);
             transaction = new Transaction();
         }
     }
@@ -119,4 +134,29 @@ public class TransactionBean implements Serializable {
     public int countMealsFromTransaction(String name) {
         return manager.getAllMealsFromTransaction(name);
     }
+
+    public void edit(Transaction tr) {
+        setTransaction(tr);
+        if (tr.getDelivery()) editDelivery = deliveryOptions;
+        else editDelivery = nonDeliveryOptions;
+    }
+
+    public List<String> getEditDelivery() {
+        return editDelivery;
+    }
+
+    public void setEditDelivery(List<String> editDelivery) {
+        this.editDelivery = editDelivery;
+    }
+
+    public void updateTransaction() {
+        employee.updateTransactionStatus(transaction, transaction.getStatus());
+        transaction = new Transaction();
+        editDelivery = new ArrayList<>();
+    }
+
+    public List<String> getMealsNames (Set<Meal> meals) {
+        return Helper.getMealsNames(meals);
+    }
+
 }
