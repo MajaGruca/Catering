@@ -12,15 +12,16 @@
 <h:body>
     <ui:composition template="template.xhtml">
         <ui:define name="content">
+            <br/>
             <h:form>
-            <p:dataTable style="width:400px;" var="bills" value="#{transactionBean.generateBill(transactionBean.user)}">
-                <p:column headerText="ID">
+            <p:dataTable var="bills" value="#{transactionBean.generateBill(transactionBean.user)}">
+                <p:column style="width:50px;" headerText="ID">
                     <h:outputText value="#{bills.id}" />
                 </p:column>
-                <p:column headerText="Data">
+                <p:column style="width:300px;" headerText="Data">
                     <h:outputText value="#{bills.date}" />
                 </p:column>
-                <p:column headerText="Cena">
+                <p:column style="width:50px;" headerText="Cena">
                     <h:outputText value="#{bills.price}" />
                 </p:column>
 

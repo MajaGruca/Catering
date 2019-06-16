@@ -24,7 +24,6 @@ public class SubscriptionDAO {
 
     public static void addSubscription(Subscription sub) {
         init();
-
         try {
             em.getTransaction().begin();
             em.persist(sub);
@@ -34,6 +33,7 @@ public class SubscriptionDAO {
         catch(Exception e) {
             System.err.println("Blad przy dodawaniu rekordu: " + e);
         }
+
     }
 
     public static void updateSubscribtion(Subscription sub) {

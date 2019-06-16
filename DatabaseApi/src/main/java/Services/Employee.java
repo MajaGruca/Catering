@@ -6,11 +6,12 @@ import Entities.Users;
 
 import javax.ejb.Remote;
 import java.util.List;
+import java.util.Set;
 
 @Remote
 public interface Employee {
     void prepareMeal(Transaction transaction);
-    List<Transaction> generateBill(Users user);
+    Set<Transaction> generateBill(Users user);
     void orderDelivery(Transaction t);
     List<Transaction> getAllTransactions();
     void addTransaction(Transaction t);

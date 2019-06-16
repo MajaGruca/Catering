@@ -16,8 +16,12 @@ public class Transaction implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Meal> meals = new HashSet<Meal>();
+    @ManyToMany(targetEntity = Meal.class, cascade={CascadeType.MERGE,CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "transaction_meals",  joinColumns = {
+            @JoinColumn(name = "transaction_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "meal_id",
+                    nullable = false, updatable = false) })
+        private Set<Meal> meals = new HashSet<Meal>();
 
     @Column(name="price")
     private Double price;

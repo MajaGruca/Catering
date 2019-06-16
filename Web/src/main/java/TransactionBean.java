@@ -1,8 +1,11 @@
+import DAO.MenuDAO;
 import Entities.Meal;
+import Entities.Menu;
 import Entities.Transaction;
 import Entities.Users;
 import Services.Employee;
 import Services.SessionManager;
+import Services.SiteClient;
 
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
@@ -25,6 +28,10 @@ public class TransactionBean implements Serializable {
 
     @EJB(lookup="java:global/Database/SessionManagerImpl")
     private SessionManager sessionManagerBean;
+
+    @EJB(lookup="java:global/Database/SiteClientImpl")
+    private SiteClient client;
+
     private static Transaction transaction = new Transaction();
     private String [] chosenMeals;
     private Users user;
@@ -35,12 +42,18 @@ public class TransactionBean implements Serializable {
         return chosenMeals;
     }
 
+    public Set<Meal> getMealsFromMenu()
+    {
+        Menu m = MenuDAO.getCurrentMenu();
+        return m.getMeal();
+    }
+
     public void setChosenMeals(String[] chosenMeals) {
         this.chosenMeals = chosenMeals;
     }
 
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMeals();
+        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
 
     List<Transaction> getAllTransactions() {
@@ -66,12 +79,14 @@ public class TransactionBean implements Serializable {
                 price += x.getPrice();
             }
             transaction.setPrice(price);
-            employee.addTransaction(transaction);
+            Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
+            client.addTransaction(curr, transaction);
+//            employee.addTransaction(transaction);
             transaction = new Transaction();
         }
     }
 
-    public List<Transaction> generateBill(Users user)
+    public Set<Transaction> generateBill(Users user)
     {
         return employee.generateBill(user);
     }

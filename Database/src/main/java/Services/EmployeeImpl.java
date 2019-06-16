@@ -8,6 +8,7 @@ import Entities.Users;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import java.util.List;
+import java.util.Set;
 
 @Stateless
 @Remote(Employee.class)
@@ -18,7 +19,7 @@ public class EmployeeImpl implements Employee {
         TransactionDAO.updateTransactionStatus(transaction);
     }
 
-    public List<Transaction> generateBill(Users user) {
+    public Set<Transaction> generateBill(Users user) {
         return TransactionDAO.getAllUsersTransactions(user);
     }
 

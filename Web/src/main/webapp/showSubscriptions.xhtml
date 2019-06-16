@@ -49,7 +49,7 @@
                     Dania: <br/>
                     <p:selectCheckboxMenu value="#{subscriptionBean.chosenMeals}" label="Meals"
                                           filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                        <f:selectItems value="#{subscriptionBean.getAllMeals()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
+                        <f:selectItems value="#{subscriptionBean.getMealsFromMenu()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
                     </p:selectCheckboxMenu>
                     Dni: <br/>
                     <p:selectCheckboxMenu value="#{subscriptionBean.days}" label="Dni"

@@ -2,9 +2,9 @@ package Services;
 
 import DAO.MenuDAO;
 import DAO.SubscriptionDAO;
-import Entities.Meal;
-import Entities.Menu;
-import Entities.Subscription;
+import DAO.TransactionDAO;
+import DAO.UserDAO;
+import Entities.*;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -54,4 +54,18 @@ public class SiteClientImpl implements SiteClient {
     public void updateSubscription(Subscription sub) {
         SubscriptionDAO.updateSubscribtion(sub);
     }
+
+    public void updateUser(Users user) {
+        UserDAO.updateUser(user);
+    }
+
+    public void addTransaction(Users user, Transaction transaction) {
+        UserDAO.addTransaction(user, transaction);
+    }
+
+    public void addSubscription(Users user, Subscription subscription) {
+        UserDAO.addSubscription(user, subscription);
+    }
+
+    public Subscription getSubscriptionById(int id) { return SubscriptionDAO.getSubscriptionbyId(id); }
 }

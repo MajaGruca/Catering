@@ -52,6 +52,16 @@ public class MenuBean implements Serializable{
         }
     }
 
+    public Menu getActiveMenu(){
+        List<Menu> menus = this.getAllMenus();
+        for(Menu m : menus)
+        {
+            if(m.getActive())
+                return m;
+        }
+        return null;
+    }
+
     public List<Meal> getMealsNotInMenu() {
         if (menu.getId() == 0) return new ArrayList<Meal>();
         return manager.getMealsNotInMenu(menu);
@@ -147,7 +157,7 @@ public class MenuBean implements Serializable{
         }
     }
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMeals();
+        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
 
     public String[] getChosenMeals() {

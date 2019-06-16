@@ -114,6 +114,19 @@ public class MealDAO {
         return results;
     }
 
+    public static List<Meal> getAllMealsFromUser(String user) {
+        init();
+        List<Meal> results = new LinkedList<Meal>();
+        try {
+            TypedQuery<Meal> query =
+                    em.createQuery("SELECT c FROM Meal c where c.owner=:user", Meal.class).setParameter("user", user);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return results;
+    }
+
     public static void addMealToCategories(Meal meal, Set<Category> category) {
         init();
         for (int i=0; i<category.size(); i++) {

@@ -8,8 +8,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class TransactionDAO {
 
@@ -36,18 +38,22 @@ public class TransactionDAO {
         return results;
     }
 
-    public static List<Transaction> getAllUsersTransactions(Users user) {
+    public static Set<Transaction> getAllUsersTransactions(Users user) {
         init();
 
-        List<Transaction> results = new LinkedList<Transaction>();
+        List<Users> results = new LinkedList<Users>();
+        Set<Transaction> trans = new HashSet<Transaction>();
         try {
-            TypedQuery<Transaction> query =
-                    em.createQuery("SELECT t FROM Transaction t, Users u WHERE u.id=id", Transaction.class).setParameter("id", user.getId());
+            TypedQuery<Users> query =
+                    em.createQuery("SELECT u FROM Users u WHERE u.id=:id", Users.class).setParameter("id", user.getId());
             results = query.getResultList();
+            user = results.get(0);
+            trans = user.getTransactions();
+
         } catch (Exception e) {
             System.err.println("Error when trying to retrieve data from database: " + e);
         }
-        return results;
+        return trans;
     }
 
     public static void addTr(Transaction t) {

@@ -1,7 +1,5 @@
-import Entities.Category;
-import Entities.Meal;
-import Entities.Menu;
-import Entities.Subscription;
+import DAO.MenuDAO;
+import Entities.*;
 import Services.SessionManager;
 import Services.SiteClient;
 
@@ -35,7 +33,7 @@ public class SubscriptionBean implements Serializable{
     Map<String, Integer> results = new HashMap<>();
 
     public List<Meal> getAllMeals() {
-        return sessionManagerBean.getAllMeals();
+        return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
     }
     @PostConstruct
     public void init(){
@@ -44,6 +42,12 @@ public class SubscriptionBean implements Serializable{
         results.put("środa", 3);
         results.put("czwartek", 4);
         results.put("piątek", 5);
+    }
+
+    public Set<Meal> getMealsFromMenu()
+    {
+        Menu m = MenuDAO.getCurrentMenu();
+        return m.getMeal();
     }
 
     public Set<Meal> getMealsSet(String[] list) {
@@ -135,7 +139,9 @@ public class SubscriptionBean implements Serializable{
 
     public void addSubscription() {
         addSubscriptionDetails();
-        client.addSubscription(subscripton);
+        Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
+//        Subscription currSub = client.getSubscriptionById();
+        client.addSubscription(curr, subscripton);
         SubscriptionBean.subscripton = new Subscription();
     }
 

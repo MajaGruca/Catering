@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+            <h:form>
+            <p:dataTable var="sub" value="#{subscriptionBean.getAllSubscriptions()}">
+                <p:column headerText="Delvery">
+                    <h:outputText value="#{sub.delivery}" />
+                </p:column>
+
+                <p:column headerText="Dni">
+                    <h:outputText value="#{subscriptionBean.changeIntToDays(sub.days)}" />
+                </p:column>
+
+                <p:column headerText="Posiłki">
+                    <h:outputText value="#{subscriptionBean.getMealsNames(sub.meals)}" />
+                </p:column>
+
+                <p:column headerText="Edytuj">
+                    <p:commandButton icon="ui-icon-trash"
+                                     title="Edit"
+                                     actionListener="#{subscriptionBean.edit(sub)}"
+                                     ajax="false" />
+                    <p:commandButton icon="ui-icon-trash"
+                                     title="Usuń"
+                                     actionListener="#{subscriptionBean.remove(sub)}"
+                                     ajax="false" />
+                </p:column>
+            </p:dataTable>
+            </h:form>
+
+
+            <h:form>
+                <h:panelGrid id="panel" columns="2" border="1"
+                             cellpadding="10" cellspacing="1">
+                    <f:facet name="header">
+                        <h:outputText value="Subskrypcja"/>
+                    </f:facet>
+                    Dania: <br/>
+                    <p:selectCheckboxMenu value="#{subscriptionBean.chosenMeals}" label="Meals"
+                                          filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                        <f:selectItems value="#{subscriptionBean.getMealsFromMenu()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
+                    </p:selectCheckboxMenu>
+                    Dni: <br/>
+                    <p:selectCheckboxMenu value="#{subscriptionBean.days}" label="Dni"
+                                          filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                        <f:selectItems value="#{subscriptionBean.getAllDays()}" var="y" itemLabel="#{y}" itemValue="#{y}" />
+                    </p:selectCheckboxMenu>
+                    Godzina:
+                    <p:calendar id="time" value="#{subscriptionBean.subscripton.time}" pattern="HH:mm" timeOnly="true"  />
+                    Dostawa?:
+                    <p:selectOneButton value="#{subscriptionBean.subscripton.delivery}">
+                        <f:selectItem itemLabel="Tak" itemValue="#{true}" />
+                        <f:selectItem itemLabel="Nie" itemValue="#{false}" />
+                    </p:selectOneButton>
+                </h:panelGrid>
+                <h:commandButton value="Add subscription" action="#{subscriptionBean.updateSubscription()}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
