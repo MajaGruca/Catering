@@ -26,6 +26,10 @@
             </p:menuitem>
             <p:menuitem rendered="#{sessionBean.userRoleClient()}" value="Dodaj usera" outcome="/adduser" icon="pi pi-search">
             </p:menuitem>
+            <p:menuitem rendered="#{sessionBean.userRoleEmployee1()}" value="Transakcje" outcome="/showTransactions" icon="pi pi-search">
+            </p:menuitem>
+            <p:menuitem rendered="#{sessionBean.userRoleEmployee2()}" value="Transakcje2" outcome="/transactionsForDelivery" icon="pi pi-search">
+            </p:menuitem>
             <f:facet name="options">
                 Uzytkownik: #{sessionBean.getCurrUser()}
                 <p:commandButton value="Wyloguj" action="#{sessionBean.logout()}"/>

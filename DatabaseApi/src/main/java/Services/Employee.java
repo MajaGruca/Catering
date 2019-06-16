@@ -15,4 +15,7 @@ public interface Employee {
     List<Transaction> getAllTransactions();
     void addTransaction(Transaction t);
     List<Users> getAllClients();
+    void updateTransactionStatus(Transaction t, String status);
+    void updateTransactionStatus(Transaction t);
+    List<Transaction> getTransactionsToDelivery();
 }

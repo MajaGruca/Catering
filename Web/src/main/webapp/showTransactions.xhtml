@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+            <h:form>
+                <p:dataTable var="tr" value="#{transactionBean.getAllTransactions()}">
+                    <p:column headerText="Posiłki">
+                        <h:outputText value="#{transactionBean.getMealsNames(tr.meals)}" />
+                    </p:column>
+
+                    <p:column headerText="status">
+                        <h:outputText value="#{tr.status}" />
+                    </p:column>
+
+                    <p:column headerText="data">
+                        <h:outputText value="#{tr.date}" />
+                    </p:column>
+
+                    <p:column headerText="cena">
+                        <h:outputText value="#{tr.price}" />
+                    </p:column>
+
+                    <p:column headerText="Edytuj">
+                        <p:commandButton icon="ui-icon-trash"
+                                         title="Edit"
+                                         actionListener="#{transactionBean.edit(tr)}"
+                                         ajax="false" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+
+            <h:form>
+                <h:panelGrid id="panel" columns="2" border="1"
+                             cellpadding="10" cellspacing="1">
+                    <f:facet name="header">
+                        <h:outputText value="Transakcja"/>
+                    </f:facet>
+                    <p:selectOneButton value="#{transactionBean.transaction.status}">
+                        <f:selectItems value="#{transactionBean.editDelivery}" />
+                    </p:selectOneButton>
+                </h:panelGrid>
+                <h:commandButton value="Update" action="#{transactionBean.updateTransaction()}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

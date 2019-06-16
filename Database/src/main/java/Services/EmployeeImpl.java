@@ -40,9 +40,18 @@ public class EmployeeImpl implements Employee {
         TransactionDAO.addTr(t);
     }
 
+    public void updateTransactionStatus(Transaction t, String status) {
+        TransactionDAO.updateTransactionStatus(t, status);
+    }
 //    public void addTransaction(Transaction t) {
 ////        TransactionDAO.addTransaction(t);
 ////    }
 
+    public void updateTransactionStatus(Transaction t) {
+        TransactionDAO.updateTransactionStatus(t);
+    }
 
+    public List<Transaction> getTransactionsToDelivery() {
+        return TransactionDAO.getAllTransactionsForDelivery();
+    }
 }

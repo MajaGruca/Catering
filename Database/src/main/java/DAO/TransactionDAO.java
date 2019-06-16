@@ -35,7 +35,18 @@ public class TransactionDAO {
         }
         return results;
     }
-
+    public static List<Transaction> getAllTransactionsForDelivery() {
+        init();
+        List<Transaction> results = new LinkedList<Transaction>();
+        try {
+            TypedQuery<Transaction> query =
+                    em.createQuery("SELECT c FROM Transaction c where c.status like 'Dostarczane'", Transaction.class);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return results;
+    }
     public static List<Transaction> getAllUsersTransactions(Users user) {
         init();
 
@@ -70,6 +81,22 @@ public class TransactionDAO {
             em.getTransaction().begin();
             Transaction old_t = em.find(Transaction.class, t.getId());
             if (old_t.getStatus() != t.getStatus() && t.getStatus()!= null) old_t.setStatus(t.getStatus());
+            em.merge(old_t);
+            em.flush();
+            System.out.println("Zapisano w bazie: Trans " + t.getId());
+        }
+        catch(Exception e) {
+            System.err.println("Blad przy dodawaniu rekordu: " + e);
+        }
+    }
+
+    public static void updateTransactionStatus(Transaction t, String status)
+    {
+        init();
+        try {
+            em.getTransaction().begin();
+            Transaction old_t = em.find(Transaction.class, t.getId());
+            old_t.setStatus(status);
             em.merge(old_t);
             em.flush();
             System.out.println("Zapisano w bazie: Trans " + t.getId());
