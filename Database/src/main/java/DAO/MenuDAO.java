@@ -231,6 +231,7 @@ public class MenuDAO {
     }
 
     public static Menu returnActiveMenu() {
+        init();
         List<Menu> results = new LinkedList<>();
         try {
             TypedQuery<Menu> query =

@@ -77,7 +77,6 @@ public class TransactionBean implements Serializable {
             transaction.setPrice(price);
             Users curr = sessionManagerBean.getUserByName(Helper.getCurrUser());
             client.addTransaction(curr, transaction);
-//            employee.addTransaction(transaction);
             transaction = new Transaction();
         }
     }

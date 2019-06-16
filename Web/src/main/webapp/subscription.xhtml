@@ -17,7 +17,8 @@
 
 
             <h:form>
-                <p:dataTable var="meal" widgetVar="menuTable" value="#{subscriptionBean.getActiveMenu().meal}">
+                <p:dataTable var="meal" widgetVar="menuTable" value="#{subscriptionBean.activeMenu.meal}"
+                             filteredValue="#{subscriptionBean.currentMeals}">>
                     <p:column headerText="Nazwa">
                         <h:outputText value="#{meal.name}" />
                     </p:column>
@@ -34,14 +35,10 @@
                         <h:outputText value="#{meal.weight}" />
                     </p:column>
 
-                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal.category)}" headerText="Kategoria" footerText="contains" filterMatchMode="in">
-                        <f:facet name="filter">
-                            <p:selectCheckboxMenu label="Colors" onchange="PF('menuTable').filter()" scrollHeight="150" styleClass="custom-filter">
-                                <f:selectItems value="#{subscriptionBean.allCategories}" />
-                            </p:selectCheckboxMenu>
-                        </f:facet>
+                    <p:column headerText="Kategoria">
                         <h:outputText value="#{subscriptionBean.getCategoryNamesSet(meal.category)}" />
                     </p:column>
+                    <p:row value="Danie dnia: #{subscriptionBean.getMealName(subscriptionBean.activeMenu.daily_meal)} Cena: #{subscriptionBean.activeMenu.daily_meal_price}" />
                 </p:dataTable>
             </h:form>
 

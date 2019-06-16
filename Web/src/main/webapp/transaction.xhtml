@@ -14,6 +14,35 @@
         <ui:define name="content">
             <p:button value="Zobacz swoje subskrypcje" outcome="/showSubscriptions" icon="pi pi-star" style="margin-right:20px;">
             </p:button>
+
+
+            <h:form>
+                <p:dataTable var="meal" widgetVar="menuTable" value="#{subscriptionBean.activeMenu.meal}"
+                             filteredValue="#{subscriptionBean.currentMeals}">>
+                    <p:column headerText="Nazwa">
+                        <h:outputText value="#{meal.name}" />
+                    </p:column>
+
+                    <p:column headerText="Opis">
+                        <h:outputText value="#{meal.description}" />
+                    </p:column>
+
+                    <p:column headerText="Cena">
+                        <h:outputText value="#{meal.price}" />
+                    </p:column>
+
+                    <p:column headerText="Waga">
+                        <h:outputText value="#{meal.weight}" />
+                    </p:column>
+
+                    <p:column headerText="Kategoria">
+                        <h:outputText value="#{subscriptionBean.getCategoryNamesSet(meal.category)}" />
+                    </p:column>
+                    <p:row value="Danie dnia: #{subscriptionBean.getMealName(subscriptionBean.activeMenu.daily_meal)} Cena: #{subscriptionBean.activeMenu.daily_meal_price}" />
+                </p:dataTable>
+            </h:form>
+
+
             <h:form>
                 <h:panelGrid id="panel" columns="2" border="1"
                              cellpadding="10" cellspacing="1">
@@ -23,7 +52,7 @@
                     Dania: <br/>
                     <p:selectCheckboxMenu value="#{transactionBean.chosenMeals}" label="Meals" multiple="true"
                                           filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                        <f:selectItems value="#{transactionBean.getAllMeals()}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
+                        <f:selectItems value="#{subscriptionBean.activeMenu.meal}" var="x" itemLabel="#{x.name}" itemValue="#{x.id}"/>
                     </p:selectCheckboxMenu>
                     Dostawa:
                     <p:selectOneButton value="#{transactionBean.transaction.delivery}">
