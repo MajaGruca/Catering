@@ -30,8 +30,16 @@ public class SubscriptionBean implements Serializable{
     private String [] days;
     private String [] chosenMeals;
     private static Subscription subscripton = new Subscription();
-    private static String[] allCategories;
+    private static String[] allCategoriesStr;
     Map<String, Integer> results = new HashMap<>();
+
+    public static String[] getAllCategoriesStr() {
+        return allCategoriesStr;
+    }
+
+    public static void setAllCategoriesStr(String[] allCategoriesStr) {
+        SubscriptionBean.allCategoriesStr = allCategoriesStr;
+    }
 
     public List<Meal> getAllMeals() {
         return sessionManagerBean.getAllMealsFromUser(Helper.getCurrUser());
@@ -43,7 +51,7 @@ public class SubscriptionBean implements Serializable{
         results.put("środa", 3);
         results.put("czwartek", 4);
         results.put("piątek", 5);
-        allCategories = getCategoriesNames(getAllCategories());
+        allCategoriesStr = getCategoriesNames(getAllCategories());
     }
 
     public Set<Meal> getMealsFromMenu()
@@ -188,7 +196,9 @@ public class SubscriptionBean implements Serializable{
         return sessionManagerBean.getAllCategories();
     }
 
-    public String getCategoryNamesSet(Set<Category> category) {
-        return Helper.getCategoryNamesSet(category).get(0);
+    public List<String> getCategoryNamesSet(Meal m) {
+        Set<Category> category = m.getCategory();
+        System.out.println(Helper.getCategoryNamesSet(category).get(0));
+        return Helper.getCategoryNamesSet(category);
     }
 }

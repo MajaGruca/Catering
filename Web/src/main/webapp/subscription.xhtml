@@ -34,13 +34,13 @@
                         <h:outputText value="#{meal.weight}" />
                     </p:column>
 
-                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal.category)}" headerText="Kategoria" footerText="contains" filterMatchMode="contains">
+                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal)}" headerText="Kategoria" footerText="contains" filterMatchMode="contains">
                         <f:facet name="filter">
-                            <p:selectCheckboxMenu label="Colors" onchange="PF('menuTable').filter()" scrollHeight="150" styleClass="custom-filter">
-                                <f:selectItems value="#{subscriptionBean.allCategories}" />
+                            <p:selectCheckboxMenu label="Kategoria" onchange="PF('menuTable').filter()" scrollHeight="150" styleClass="custom-filter">
+                                <f:selectItems value="#{subscriptionBean.getAllCategoriesStr()}" />
                             </p:selectCheckboxMenu>
                         </f:facet>
-                        <h:outputText value="#{subscriptionBean.getCategoryNamesSet(meal.category)}" />
+                        <h:outputText value="#{subscriptionBean.getCategoryNamesSet(meal)}" />
                     </p:column>
                 </p:dataTable>
             </h:form>
