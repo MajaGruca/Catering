@@ -4,6 +4,7 @@ import Entities.Menu;
 import Entities.Transaction;
 import Entities.Users;
 import Services.Employee;
+import Services.Manager;
 import Services.SessionManager;
 import Services.SiteClient;
 
@@ -31,6 +32,9 @@ public class TransactionBean implements Serializable {
 
     @EJB(lookup="java:global/Database/SiteClientImpl")
     private SiteClient client;
+
+    @EJB(lookup="java:global/Database/ManagerImpl")
+    private Manager manager;
 
     private static Transaction transaction = new Transaction();
     private String [] chosenMeals;
@@ -106,5 +110,13 @@ public class TransactionBean implements Serializable {
     public String setUser(Users user) {
         this.user = user;
         return "/bill";
+    }
+
+    public List<Meal> getAllMealsFromTransaction() {
+        return manager.getAllMealsFromTransaction();
+    }
+
+    public int countMealsFromTransaction(String name) {
+        return manager.getAllMealsFromTransaction(name);
     }
 }

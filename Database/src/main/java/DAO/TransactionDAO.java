@@ -84,4 +84,30 @@ public class TransactionDAO {
             System.err.println("Blad przy dodawaniu rekordu: " + e);
         }
     }
+
+    public static List<Meal> getAllOfMeals() {
+        init();
+        List<Meal> results = new LinkedList<Meal>();
+        try {
+            TypedQuery<Meal> query =
+                    em.createQuery("SELECT DISTINCT d FROM Transaction c JOIN c.meals d", Meal.class);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return results;
+    }
+
+    public static int getAllOfMeals(String name) {
+        init();
+        Long results = Long.valueOf(0);
+        try {
+            TypedQuery<Long> query =
+                    em.createQuery("SELECT count(d) FROM Transaction c JOIN c.meals d where d.name=:name", Long.class).setParameter("name", name);
+            results = query.getSingleResult();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        return Math.toIntExact(results);
+    }
 }
