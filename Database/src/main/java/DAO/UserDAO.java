@@ -51,14 +51,8 @@ public class UserDAO {
     public static Users getUsersbyId(int id) {
         init();
         CriteriaBuilder cb = em.getCriteriaBuilder();
-//        CriteriaQuery<Users> query = cb.createQuery(Users.class);
-//        Root<Users> hh = query.from(Users.class);
-////        query.where(cb.equal(hh.get("id"), id));
-//        query.select(hh).where(cb.equal(hh.get("id"), id));
         List<Users> results = new LinkedList<Users>();
         try {
-//            TypedQuery<Users> q = em.createQuery(query);
-//            Userss = q.getResultList();
             TypedQuery<Users> query =
                     em.createQuery("SELECT c FROM Users c where c.id=:id", Users.class).setParameter("id", id);
             results = query.getResultList();
@@ -107,6 +101,20 @@ public class UserDAO {
             em.merge(old_user);
             em.flush();
             System.out.println("updated user " + old_user.getId());
+        }
+        catch(Exception e) {
+            System.err.println("Blad przy dodawaniu user: " + e);
+        }
+    }
+
+    public static void addUser(Users user) {
+        init();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        try {
+            em.getTransaction().begin();
+            em.persist(user);
+            em.flush();
+            System.out.println("added user " + user.getId());
         }
         catch(Exception e) {
             System.err.println("Blad przy dodawaniu user: " + e);

@@ -22,4 +22,5 @@ public interface Manager {
     List<Meal> getMealsFromMenu(Menu menu);
     List<Meal> getAllMealsFromTransaction();
     int getAllMealsFromTransaction(String name);
+    void addUser(Users user);
 }

@@ -2,8 +2,10 @@ package Services;
 
 import DAO.MenuDAO;
 import DAO.TransactionDAO;
+import DAO.UserDAO;
 import Entities.Meal;
 import Entities.Menu;
+import Entities.Users;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -65,5 +67,9 @@ public class ManagerImpl implements Manager {
 
     public int getAllMealsFromTransaction(String name) {
         return TransactionDAO.getAllOfMeals(name);
+    }
+
+    public void addUser(Users user) {
+        UserDAO.addUser(user);
     }
 }
