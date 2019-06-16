@@ -14,6 +14,38 @@
         <ui:define name="content">
             <p:button value="Zobacz swoje subskrypcje" outcome="/showSubscriptions" icon="pi pi-star" style="margin-right:20px;">
             </p:button>
+
+
+            <h:form>
+                <p:dataTable var="meal" widgetVar="menuTable" value="#{subscriptionBean.getActiveMenu().meal}">
+                    <p:column headerText="Nazwa">
+                        <h:outputText value="#{meal.name}" />
+                    </p:column>
+
+                    <p:column headerText="Opis">
+                        <h:outputText value="#{meal.description}" />
+                    </p:column>
+
+                    <p:column headerText="Cena">
+                        <h:outputText value="#{meal.price}" />
+                    </p:column>
+
+                    <p:column headerText="Waga">
+                        <h:outputText value="#{meal.weight}" />
+                    </p:column>
+
+                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal.category)}" headerText="Kategoria" footerText="contains" filterMatchMode="contains">
+                        <f:facet name="filter">
+                            <p:selectCheckboxMenu label="Colors" onchange="PF('menuTable').filter()" scrollHeight="150" styleClass="custom-filter">
+                                <f:selectItems value="#{subscriptionBean.allCategories}" />
+                            </p:selectCheckboxMenu>
+                        </f:facet>
+                        <h:outputText value="#{subscriptionBean.getCategoryNamesSet(meal.category)}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+
             <h:form>
                 <h:panelGrid id="panel" columns="2" border="1"
                              cellpadding="10" cellspacing="1">

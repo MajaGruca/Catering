@@ -5,10 +5,7 @@ import Entities.Menu;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @PersistenceContext(type = PersistenceContextType.EXTENDED)
 public class MenuDAO {
@@ -74,6 +71,7 @@ public class MenuDAO {
         try {
             em.getTransaction().begin();
             Menu old_menu = em.find(Menu.class, menu.getId());
+            old_menu.getMeal().clear();
             em.remove(old_menu);
             em.getTransaction().commit();
             em.flush();
@@ -230,5 +228,18 @@ public class MenuDAO {
         } catch (Exception e) {
             System.err.println("Blad przy archiwizacji menu: " + e);
         }
+    }
+
+    public static Menu returnActiveMenu() {
+        List<Menu> results = new LinkedList<>();
+        try {
+            TypedQuery<Menu> query =
+                    em.createQuery("SELECT DISTINCT c FROM Menu c where c.active=true", Menu.class);
+            results = query.getResultList();
+        } catch (Exception e) {
+            System.err.println("Error when trying to retrieve data from database: " + e);
+        }
+        if (results.size() > 0) return results.get(0);
+        else return null;
     }
 }

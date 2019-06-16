@@ -20,4 +20,5 @@ public interface SiteClient {
     void addTransaction(Users user, Transaction transaction);
     void addSubscription(Users user, Subscription subscription);
     Subscription getSubscriptionById(int id);
+    Menu getActiveMenu();
 }

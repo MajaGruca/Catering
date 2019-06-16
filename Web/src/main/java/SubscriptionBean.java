@@ -29,6 +29,7 @@ public class SubscriptionBean implements Serializable{
     private String [] days;
     private String [] chosenMeals;
     private static Subscription subscripton = new Subscription();
+    private static String[] allCategories;
     Map<String, Integer> results = new HashMap<>();
 
     public List<Meal> getAllMeals() {
@@ -41,6 +42,7 @@ public class SubscriptionBean implements Serializable{
         results.put("środa", 3);
         results.put("czwartek", 4);
         results.put("piątek", 5);
+        allCategories = getCategoriesNames(getAllCategories());
     }
 
     public Set<Meal> getMealsSet(String[] list) {
@@ -117,6 +119,9 @@ public class SubscriptionBean implements Serializable{
     public List<String> getMealsNames(Set<Meal> list) {
         return Helper.getMealsNames(list);
     }
+    public String[] getCategoriesNames(List<Category> list) {
+        return Helper.getCategoryNames(list).toArray(String[]::new);
+    }
 
     public Set<Integer> changeDaysToInt(String [] list) {
         Set<Integer> resultList = new HashSet<>();
@@ -167,4 +172,16 @@ public class SubscriptionBean implements Serializable{
         client.cancelSubscribtion(sub);
     }
 
+    public Menu getActiveMenu()
+    {
+        return client.getActiveMenu();
+    }
+
+    public List<Category> getAllCategories() {
+        return sessionManagerBean.getAllCategories();
+    }
+
+    public String getCategoryNamesSet(Set<Category> category) {
+        return Helper.getCategoryNamesSet(category).get(0);
+    }
 }
