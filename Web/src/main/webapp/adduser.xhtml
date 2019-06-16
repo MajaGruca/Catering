@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Title</title>
+</h:head>
+<h:body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+            <h:form>
+                <h:panelGrid id="panel" columns="2" border="1"
+                             cellpadding="10" cellspacing="1">
+                    <f:facet name="header">
+                        <h:outputText value="Dodaj konto"/>
+                    </f:facet>
+                    Login: <br/>
+                    <p:inputText value="#{userBean.user.name}"/><br/>
+                    Hasło: <br/>
+                    <h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+                        <h:outputLabel for="pwd1" value="Password 1: *" />
+                        <h:inputSecret id="pwd1" value="#{userBean.user.password}" match="pwd2" label="Password 1" required="true" />
+
+                        <h:outputLabel for="pwd2" value="Password 2: *" />
+                        <h:inputSecret id="pwd2" value="#{userBean.user.password}" label="Password 2" required="true" />
+                    </h:panelGrid>
+                    Rola: <br/>
+                    <p:selectOneMenu value="#{userBean.user.role}">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItem itemValue="Admin" itemLabel="Admin"/>
+                        <f:selectItem itemValue="Client" itemLabel="Client"/>
+                        <f:selectItem itemValue="Employee1" itemLabel="Employee1"/>
+                        <f:selectItem itemValue="Employee2" itemLabel="Employee2"/>
+                        <f:selectItem itemValue="Manager" itemLabel="Manager"/>
+                    </p:selectOneMenu>
+                <h:commandButton value="Login" action="#{userBean.addUser()}"/>
+                </h:panelGrid>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
