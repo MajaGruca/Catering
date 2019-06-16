@@ -68,4 +68,8 @@ public class SiteClientImpl implements SiteClient {
     }
 
     public Subscription getSubscriptionById(int id) { return SubscriptionDAO.getSubscriptionbyId(id); }
+
+    public Menu getActiveMenu() {
+        return MenuDAO.returnActiveMenu();
+    }
 }

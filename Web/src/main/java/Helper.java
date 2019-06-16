@@ -1,3 +1,4 @@
+import Entities.Category;
 import Entities.Meal;
 import Services.SessionManager;
 
@@ -61,5 +62,21 @@ public class Helper {
     {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         return ec.isUserInRole("Admin");
+    }
+
+    public static List<String> getCategoryNames(List<Category> list) {
+        List<String> result = new ArrayList<>();
+        for (Category x : list) {
+            result.add(x.getName());
+        }
+        return result;
+    }
+
+    public static List<String> getCategoryNamesSet(Set<Category> list) {
+        List<String> result = new ArrayList<>();
+        for (Category x : list) {
+            result.add(x.getName());
+        }
+        return result;
     }
 }
