@@ -17,6 +17,23 @@
                 Witaj #{sessionBean.getCurrUser()}!<br/>
                 Przejdź do wybranej zakładki
             </h2>
+
+            <p:commandButton title="password"
+                             value="Zmien haslo"
+                             action="#{sessionBean.passwordButttonVis()}"
+                             ajax="false" />
+            <br/>
+            <h:form rendered="#{sessionBean.getPasswordButton()}">
+
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Hasło:"/>
+                    <h:inputSecret binding="#{input}" required="true"/>
+                    <h:panelGroup>
+                        <h:commandButton action="#{sessionBean.changePassword(input.value)}" value="Zapisz" ajax="false"/>
+                    </h:panelGroup>
+                </h:panelGrid>
+                <br/>
+            </h:form>
             <h:form rendered="#{sessionBean.userRoleEmployee1()}">
                 <p:dataTable var="users" value="#{transactionBean.getAllUsers()}">
                     <p:column headerText="id">

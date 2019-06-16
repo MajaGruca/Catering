@@ -10,7 +10,7 @@ public class PasswordConverter implements AttributeConverter<String,String> {
     public String convertToDatabaseColumn(String s) {
         byte[] hash = DigestUtils.sha(s.getBytes());
         String strHash=Base64.encodeBase64String(hash);
-        strHash=strHash.replace("\r\n","");
+        //strHash=strHash.replace("\r\n","");
         return strHash;
     }
 

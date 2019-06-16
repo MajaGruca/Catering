@@ -4,6 +4,7 @@ import Entities.Subscription;
 import Entities.Transaction;
 import Entities.Users;
 import Exceptions.InvalidLoginCredentialsException;
+import Security.PasswordConverter;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -178,5 +179,20 @@ public class UserDAO {
             factory = Persistence.createEntityManagerFactory("DataSource");
         if (em==null)
             em = factory.createEntityManager();
+    }
+
+    public static void changePassword(String user, String password) {
+        init();
+        try {
+            em.getTransaction().begin();
+            Users u = getUsersbyName(user);
+            u.setPassword(password);
+            em.merge(u);
+            em.getTransaction().commit();
+        }
+        catch(Exception e) {
+            System.err.println("Blad przy zmianie hasla: " + e);
+        }
+
     }
 }

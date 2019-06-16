@@ -35,6 +35,14 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Login</web-resource-name>
+            <url-pattern>/logout.xhtml</url-pattern>
+        </web-resource-collection>
+        <!-- OMIT auth-constraint -->
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Login</web-resource-name>
             <url-pattern>/*</url-pattern>
             <http-method>POST</http-method>
             <http-method>GET</http-method>

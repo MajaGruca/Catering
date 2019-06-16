@@ -1,3 +1,4 @@
+import DAO.UserDAO;
 import Entities.Meal;
 import Entities.Transaction;
 import Entities.Users;

@@ -1,3 +1,4 @@
+import DAO.UserDAO;
 import Entities.*;
 import Services.Manager;
 import Services.SessionManager;
@@ -35,6 +36,7 @@ import java.util.*;
     private String [] chosenCategories;
     private String [] chosenMenus;
     private String [] chosenMeals;
+    private Boolean passwordButton = false;
     private static Subscription subscripton = new Subscription();
 
     public Meal getMeal() {
@@ -135,7 +137,7 @@ import java.util.*;
             ec.invalidateSession();
             request.logout();
 
-            ec.redirect(request.getContextPath() + "/index.xhtml");
+            ec.redirect(request.getContextPath() + "/logout.xhtml");
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -180,4 +182,20 @@ import java.util.*;
         this.chosenMeals = chosenMeals;
     }
 
+    public void changePassword(String password)
+    {
+        UserDAO.changePassword(getCurrUser(),password);
+    }
+
+    public void passwordButttonVis(){
+        this.passwordButton = !this.passwordButton;
+    }
+
+    public Boolean getPasswordButton() {
+        return passwordButton;
+    }
+
+    public void setPasswordButton(Boolean passwordButton) {
+        this.passwordButton = passwordButton;
+    }
 }
