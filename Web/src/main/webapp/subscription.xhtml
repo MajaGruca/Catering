@@ -34,7 +34,7 @@
                         <h:outputText value="#{meal.weight}" />
                     </p:column>
 
-                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal.category)}" headerText="Kategoria" footerText="contains" filterMatchMode="contains">
+                    <p:column filterBy="#{subscriptionBean.getCategoryNamesSet(meal.category)}" headerText="Kategoria" footerText="contains" filterMatchMode="in">
                         <f:facet name="filter">
                             <p:selectCheckboxMenu label="Colors" onchange="PF('menuTable').filter()" scrollHeight="150" styleClass="custom-filter">
                                 <f:selectItems value="#{subscriptionBean.allCategories}" />

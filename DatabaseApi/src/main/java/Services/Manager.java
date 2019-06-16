@@ -20,4 +20,6 @@ public interface Manager {
     List<Meal> getMealsNotInMenu(Menu menu);
     void updateMenu(Menu menu);
     List<Meal> getMealsFromMenu(Menu menu);
+    List<Meal> getAllMealsFromTransaction();
+    int getAllMealsFromTransaction(String name);
 }

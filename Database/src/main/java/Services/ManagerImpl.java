@@ -1,6 +1,7 @@
 package Services;
 
 import DAO.MenuDAO;
+import DAO.TransactionDAO;
 import Entities.Meal;
 import Entities.Menu;
 
@@ -56,5 +57,13 @@ public class ManagerImpl implements Manager {
 
     public List<Meal> getMealsFromMenu(Menu menu) {
         return MenuDAO.getMealsFromMenu(menu);
+    }
+
+    public List<Meal> getAllMealsFromTransaction() {
+        return TransactionDAO.getAllOfMeals();
+    }
+
+    public int getAllMealsFromTransaction(String name) {
+        return TransactionDAO.getAllOfMeals(name);
     }
 }

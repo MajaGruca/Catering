@@ -36,8 +36,26 @@
                     </p:column>
 
                 </p:dataTable>
+            </h:form>
+            <h:form>
+                <p:dataTable var="meals" value="#{transactionBean.getAllMealsFromTransaction()}">
+                    <p:column headerText="nazwa">
+                        <h:outputText value="#{meals.name}" />
+                    </p:column>
 
+                    <p:column headerText="Liczba zamowien: ">
+                        <h:outputText value="#{transactionBean.countMealsFromTransaction(meals.name)}" />
+                    </p:column>
 
+<!--                    <p:column headerText="Rachunek">-->
+
+<!--                        <p:commandButton icon="ui-icon-trash"-->
+<!--                                         title="Bill"-->
+<!--                                         action="#{transactionBean.setUser(users)}"-->
+<!--                                         ajax="false" />-->
+<!--                    </p:column>-->
+
+                </p:dataTable>
             </h:form>
         </h:form>
         </ui:define>
