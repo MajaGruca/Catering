@@ -9,84 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b90bcf3e-83bf-40f9-9ff6-0d694fd63bde" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d/storage_v2/_src_/database/postgresdb.t-WAgg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d/storage_v2/_src_/database/postgresdb.t-WAgg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/target/classes/DAO/TransactionDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Database/target/classes/Services/EmployeeImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/Helper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/SubscriptionBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/TransactionBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/Web-1.0/showSubscriptions.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/Web-1.0/transaction.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/classes/Helper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/classes/SubscriptionBean.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Web/target/classes/TransactionBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/32b77c55-d169-4c44-b823-0ab1690ccb7d/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Catering.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/DAO/MealDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/DAO/MealDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/DAO/SubscriptionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/DAO/SubscriptionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/DAO/TransactionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/DAO/TransactionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/Services/EmployeeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/Services/EmployeeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/Services/SessionManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/Services/SessionManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/src/main/java/Services/SiteClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Database/src/main/java/Services/SiteClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/DAO/MealDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/DAO/MealDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/DAO/MenuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/DAO/MenuDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/DAO/SubscriptionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/DAO/SubscriptionDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/DAO/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/DAO/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/Services/ManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/Services/ManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/Services/SessionManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/Services/SessionManagerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/target/classes/Services/SiteClientImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Database/target/classes/Services/SiteClientImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/java/Entities/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/java/Entities/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/java/Entities/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/java/Entities/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/SessionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/SiteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/java/Services/SiteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/src/main/resources/META-INF/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/src/main/resources/META-INF/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Entities/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/META-INF/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/META-INF/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Security/Hash.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Security/Hash.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/SessionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/SessionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/SiteClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseApi/target/classes/Services/SiteClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/MOTDBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/MOTDBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/MenuBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/MenuBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/SessionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/SessionBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/SubscriptionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/SubscriptionBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/TransactionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/TransactionBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/addMeal.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/addMeal.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/bill.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/bill.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/showSubscriptions.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/showSubscriptions.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/start.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/start.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/subscription.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/subscription.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/webapp/transaction.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/webapp/transaction.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/MOTDBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/MOTDBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/MenuBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/MenuBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/SessionBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/classes/SessionBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/faces-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/faces-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/lib/Database-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/lib/Database-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/lib/DatabaseApi-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/lib/DatabaseApi-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/login.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/login.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/start.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/start.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/classes/MOTDBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/classes/MOTDBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/classes/MenuBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/classes/MenuBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/target/classes/SessionBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/classes/SessionBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Database_jar2/Database.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Messages_jar/Messages.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Messages_jar/Messages.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/target/Web-1.0/subscription.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/Web/target/Web-1.0/subscription.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Database_jar/Database.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Messages_jar/Messages.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -175,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/Web/src/main/webapp/bill.xhtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+              <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -524,7 +450,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560682049097" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560682191659" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -770,17 +696,23 @@
       <option name="project" value="LOCAL" />
       <updated>1560619483769</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Generating bill">
+      <created>1560682152647</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1560682152647</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59398000" />
+    <option name="totallyTimeSpent" value="59688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2590604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2590604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -792,7 +724,7 @@
       <window_info anchor="bottom" id="Duplicate detector" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.65033555" visible="true" weight="0.40651557" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.65033555" visible="true" weight="0.40651557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -837,7 +769,8 @@
     <MESSAGE value="Employee interface1" />
     <MESSAGE value="Employee view" />
     <MESSAGE value="Merge branch 'olga'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'olga'" />
+    <MESSAGE value="Generating bill" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generating bill" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DatabaseApi/src/main/java/Entities/Category.java">
@@ -1253,7 +1186,7 @@
     <entry file="file://$PROJECT_DIR$/Web/src/main/webapp/bill.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
         </state>
       </provider>
     </entry>
