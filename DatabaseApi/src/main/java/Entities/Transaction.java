@@ -99,4 +99,14 @@ public class Transaction implements Serializable {
     public void setMeals(Set<Meal> meals) {
         this.meals = meals;
     }
+
+    public Double sumMealPrices()
+    {
+        Double sum = 0.0;
+        for(Meal m : meals)
+        {
+            sum += m.getPrice();
+        }
+        return sum;
+    }
 }
